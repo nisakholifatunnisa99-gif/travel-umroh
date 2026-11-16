@@ -21,13 +21,7 @@
     <!-- Konten Utama Hero (Menggunakan Kelas Animasi animate-fade-in) -->
     <div class="relative z-10 max-w-4xl mx-auto text-center space-y-6 animate-fade-in">
         
-        <!-- Badge Selamat Datang -->
-        <div class="inline-flex items-center gap-2 bg-emerald-900/80 border border-emerald-700/60 px-4 py-1.5 rounded-full shadow-sm backdrop-blur-md">
-            <span class="w-2 h-2 rounded-full bg-amber-400 animate-ping"></span>
-            <span class="text-xs font-serif text-amber-300 font-semibold tracking-wider uppercase">
-                Penyelenggara Resmi Ibadah Umrah & Haji
-            </span>
-        </div>
+        
 
         <!-- Judul Utama (Konsisten H1 & Font Serif) -->
      <h1 class="text-4xl sm:text-6xl font-bold font-serif text-white tracking-tight animate-fade-in">

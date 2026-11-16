@@ -1,74 +1,105 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="id" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@yield('title', 'Panel Admin - ROZWIA')</title>
-    <!-- Tailwind CSS CDN -->
+    <title>@yield('title', 'Admin Panel - ROZWIA Islamic Travel')</title>
+
+    <!-- Tailwind CSS v4 CDN -->
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <!-- Alpine.js -->
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-    <style>
-        body { font-family: 'Plus Jakarta Sans', sans-serif; }
-        .font-serif { font-family: 'Playfair Display', serif; }
-    </style>
-</head>
-<body class="bg-[#F8F6F0] min-h-screen flex antialiased text-stone-800">
 
-    <!-- SIDEBAR ADMIN -->
-    <aside class="w-72 bg-[#0B3B24] text-white flex flex-col justify-between hidden md:flex fixed inset-y-0 left-0 z-45 shadow-xl">
-        <div class="p-8 space-y-8">
-            <!-- Logo Brand -->
-            <div class="space-y-1">
-                <h1 class="text-2xl font-bold font-serif tracking-wide text-white">ROZWIA</h1>
-                <p class="text-[10px] uppercase tracking-widest text-amber-400 font-semibold">Islamic Travel • Admin Panel</p>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+
+<body class="bg-[#F4EFE6] font-sans text-stone-800 antialiased min-h-screen flex" x-data="{ currentTab: 'dashboard' }">
+
+    <!-- ================= SIDEBAR KIRI MENPEL PENUH (FIXED & FULL HEIGHT) ================= -->
+    <aside class="w-72 bg-[#0B3B24] text-[#E5D3B3] flex flex-col justify-between fixed inset-y-0 left-0 z-40 shadow-xl p-6">
+        
+        <div class="space-y-8">
+            <!-- Logo Header Sidebar -->
+            <div class="flex items-center gap-3 pb-4 border-b border-emerald-800/80 font-serif">
+                <span class="text-3xl">🕌</span>
+                <div class="leading-tight">
+                    <span class="block tracking-widest text-lg font-bold text-white">ROZWIA</span>
+                    <span class="block text-[9px] tracking-widest text-[#E5D3B3]">~ ADMIN PANEL ~</span>
+                </div>
             </div>
 
-            <!-- Menu Navigasi Admin -->
+            <!-- Menu Navigasi Sidebar -->
             <nav class="space-y-2 font-serif text-sm">
-                <a href="#" class="flex items-center gap-3 px-4 py-3 rounded-xl bg-emerald-950/80 text-white font-medium shadow-xs">
-                    <span>📊</span> Dashboard & Keuangan
-                </a>
-                <a href="#" class="flex items-center gap-3 px-4 py-3 rounded-xl text-stone-300 hover:bg-emerald-900/50 hover:text-white transition">
-                    <span>👥</span> Kelola Akun & Jamaah
-                </a>
-                <a href="#" class="flex items-center gap-3 px-4 py-3 rounded-xl text-stone-300 hover:bg-emerald-900/50 hover:text-white transition">
-                    <span>💬</span> Invoice & WhatsApp
-                </a>
+                <!-- 1. Dashboard & Keuangan -->
+                <button @click="currentTab = 'dashboard'" 
+                        :class="currentTab === 'dashboard' ? 'bg-[#E5D3B3] text-[#0B3B24] font-bold shadow-md' : 'text-[#E5D3B3] hover:bg-emerald-900/60'"
+                        class="w-full flex items-center gap-3 px-4 py-3 rounded-2xl transition text-left cursor-pointer">
+                    
+                    <span>Dashboard & Keuangan</span>
+                </button>
+
+                <!-- 2. Verifikasi Dokumen -->
+                <button @click="currentTab = 'dokumen'" 
+                        :class="currentTab === 'dokumen' ? 'bg-[#E5D3B3] text-[#0B3B24] font-bold shadow-md' : 'text-[#E5D3B3] hover:bg-emerald-900/60'"
+                        class="w-full flex items-center gap-3 px-4 py-3 rounded-2xl transition text-left cursor-pointer">
+                    
+                    <span>Verifikasi Dokumen</span>
+                </button>
+
+                <!-- 3. Surat Kemenag & Visa -->
+                <button @click="currentTab = 'kemenag'" 
+                        :class="currentTab === 'kemenag' ? 'bg-[#E5D3B3] text-[#0B3B24] font-bold shadow-md' : 'text-[#E5D3B3] hover:bg-emerald-900/60'"
+                        class="w-full flex items-center gap-3 px-4 py-3 rounded-2xl transition text-left cursor-pointer">
+                    
+                    <span>Surat Kemenag & Visa</span>
+                </button>
+
+                <!-- 4. Hotel & Pesawat -->
+                <button @click="currentTab = 'hotel'" 
+                        :class="currentTab === 'hotel' ? 'bg-[#E5D3B3] text-[#0B3B24] font-bold shadow-md' : 'text-[#E5D3B3] hover:bg-emerald-900/60'"
+                        class="w-full flex items-center gap-3 px-4 py-3 rounded-2xl transition text-left cursor-pointer">
+                    
+                    <span>Hotel & Pesawat</span>
+                </button>
+
+                <!-- 5. Jadwal & Manifest -->
+                <button @click="currentTab = 'manifest'" 
+                        :class="currentTab === 'manifest' ? 'bg-[#E5D3B3] text-[#0B3B24] font-bold shadow-md' : 'text-[#E5D3B3] hover:bg-emerald-900/60'"
+                        class="w-full flex items-center gap-3 px-4 py-3 rounded-2xl transition text-left cursor-pointer">
+                    
+                    <span>Jadwal & Manifest</span>
+                </button>
             </nav>
         </div>
 
-        <!-- Tombol Logout -->
-        <div class="p-6 border-t border-emerald-900/60">
-            <a href="#" onclick="event.preventDefault(); alert('Logout Admin Berhasil');" class="flex items-center justify-center gap-2 bg-rose-950/40 hover:bg-rose-900/60 text-rose-200 text-xs font-bold py-3 rounded-xl transition border border-rose-800/40">
-                <span>🚪</span> Keluar (Logout)
-            </a>
-        </div>
-    </aside>
-
-    <!-- KONTEN UTAMA -->
-    <div class="flex-1 md:pl-72 flex flex-col min-h-screen">
-        
-        <!-- Topbar Sederhana -->
-        <header class="bg-white/80 backdrop-blur-md border-b border-stone-200/80 h-20 px-8 flex items-center justify-between sticky top-0 z-30">
-            <div class="flex items-center gap-3">
-                <span class="inline-block w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
-                <span class="text-xs font-bold uppercase tracking-wider text-stone-600">Admin Online • Rozwia System</span>
-            </div>
-            <div class="flex items-center gap-3">
-                <div class="w-10 h-10 rounded-full bg-emerald-100 text-[#0B3B24] font-bold flex items-center justify-center text-sm font-serif">
-                    AD
+        <!-- Profil Admin & Tombol Keluar di Bawah Sidebar -->
+        <div class="pt-6 border-t border-emerald-800/80 flex items-center justify-between font-serif">
+            <div class="flex items-center gap-3 overflow-hidden">
+                <div class="w-10 h-10 rounded-full bg-emerald-800 border border-[#E5D3B3]/40 flex items-center justify-center text-base shrink-0 text-white">
+                    👑
+                </div>
+                <div class="overflow-hidden">
+                    <p class="text-xs font-bold text-white truncate">Super Admin</p>
+                    <a href="/" class="text-[10px] text-emerald-300 hover:underline">← Beranda</a>
                 </div>
             </div>
-        </header>
+            <form action="{{ route('logout') ?? '#' }}" method="POST">
+                @csrf
+                <button type="submit" class="text-xs text-rose-400 hover:text-rose-300 font-semibold transition cursor-pointer">
+                    Keluar
+                </button>
+            </form>
+        </div>
 
-        <!-- Main Section -->
-        <main class="flex-1 p-6 lg:p-10">
+    </aside>
+
+
+    <!-- ================= AREA KONTEN KANAN ADMIN (DENGAN MARGIN KIRI SEBESAR LEBAR SIDEBAR) ================= -->
+    <main class="flex-1 ml-72 min-h-screen p-6 sm:p-10">
+        <div class="max-w-6xl mx-auto space-y-6">
             @yield('content')
-        </main>
-
-    </div>
+        </div>
+    </main>
 
 </body>
 </html>

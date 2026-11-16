@@ -11,22 +11,11 @@
         <div class="text-center space-y-2">
             <span class="text-xs font-bold tracking-widest text-amber-800 uppercase">Akses Sistem</span>
             <h1 class="text-2xl sm:text-3xl font-bold text-[#0B3B24] font-serif">Masuk ke Akun Anda</h1>
-            <p class="text-stone-600 text-sm">Silakan pilih hak akses dan masukkan kredensial Anda.</p>
         </div>
 
         <!-- Form Login Terpadu -->
         <form action="{{ route('login.submit') }}" method="POST" class="space-y-4 pt-2">
             @csrf
-
-            <!-- Pilih Role / Hak Akses -->
-            <div class="space-y-1.5">
-                <label class="block text-xs font-bold uppercase tracking-wider text-stone-700">Masuk Sebagai (Role)</label>
-                <select name="role" class="w-full px-4 py-3 rounded-xl border border-stone-300 focus:outline-none focus:ring-2 focus:ring-emerald-900 text-sm bg-white font-medium" required>
-                    <option value="admin">Admin (Keuangan & Invoice)</option>
-                    <option value="supervisor">Supervisor (Monitoring Manifest)</option>
-                    <option value="user">Jamaah / User Dashboard</option>
-                </select>
-            </div>
 
             <!-- Email / Username -->
             <div class="space-y-1.5">

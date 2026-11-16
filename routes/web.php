@@ -317,3 +317,21 @@ Route::prefix('supervisor')->name('supervisor.')->group(function () {
         Route::view('/manifest', 'supervisor.manifest')->name('manifest');
     });
 });
+Route::post('/logout', function (Request $request) {
+    auth()->logout(); // Logout user jika pakai auth bawaan
+    $request->session()->invalidate();
+    $request->session()->regenerateToken();
+    return redirect('/');
+})->name('logout');
+// Route untuk Admin Dashboard (Menggunakan file admin/dashboard.blade.php)
+Route::get('/admin/dashboard', function () {
+    return view('admin.dashboard');
+})->name('admin.dashboard');
+
+// Route untuk Proses Logout Admin/User
+Route::post('/logout', function (\Illuminate\Http\Request $request) {
+    auth()->logout();
+    $request->session()->invalidate();
+    $request->session()->regenerateToken();
+    return redirect('/');
+})->name('logout');

@@ -172,7 +172,6 @@
                 <div class="text-center md:text-left space-y-1">
                     <span class="text-[10px] font-bold tracking-widest text-amber-800 uppercase font-serif">Akses Sistem</span>
                     <h2 class="text-xl sm:text-2xl font-bold text-[#0B3B24] font-serif">Masuk ke Akun Anda</h2>
-                    <p class="text-stone-600 text-xs font-serif">Silakan pilih hak akses dan masukkan kredensial Anda.</p>
                 </div>
 
                 <!-- Form Login -->
