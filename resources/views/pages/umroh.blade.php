@@ -229,29 +229,6 @@
 
         </div>
 
-        <!-- CTA BANNER BAWAH -->
-        <section class="pt-8">
-            <div class="bg-[#0B3B24] rounded-[32px] p-8 sm:p-14 shadow-xl border border-emerald-900 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8">
-                <div class="space-y-3 max-w-xl">
-                    <h2 class="text-2xl sm:text-4xl font-serif font-bold text-white tracking-tight">
-                        Siap Memulai Perjalanan Menuju Baitullah?
-                    </h2>
-                    <p class="text-emerald-100/85 text-sm sm:text-base font-serif leading-relaxed">
-                        Jangan ragu untuk mengambil langkah pertama. Daftarkan diri Anda atau konsultasi kebutuhan perjalanan Umrah bersama tim ROZWIA.
-                    </p>
-                </div>
-
-                <div class="flex flex-wrap items-center gap-4 shrink-0">
-                    <a href="{{ route('paket.umroh') }}" class="bg-amber-500 hover:bg-amber-400 text-emerald-950 font-serif font-bold text-sm px-7 py-3.5 rounded-2xl shadow-md transition transform hover:-translate-y-0.5">
-                        Daftar Paket
-                    </a>
-                    <a href="https://wa.me/6289518829438?text=Assalamualaikum%20ROZWIA,%20saya%20ingin%20bertanya%20mengenai%20jadwal%20keberangkatan%20dan%20paket%20umroh." target="_blank" class="bg-[#25D366] hover:bg-[#20ba5a] text-white font-serif font-bold text-sm px-7 py-3.5 rounded-2xl shadow-md transition transform hover:-translate-y-0.5 flex items-center gap-2">
-                        <span>💬</span> Chat Via WhatsApp
-                    </a>
-                </div>
-            </div>
-        </section>
-
     </div>
 </div>
 

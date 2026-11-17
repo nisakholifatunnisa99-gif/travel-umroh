@@ -323,10 +323,27 @@ Route::post('/logout', function (Request $request) {
     $request->session()->regenerateToken();
     return redirect('/');
 })->name('logout');
-// Route untuk Admin Dashboard (Menggunakan file admin/dashboard.blade.php)
-Route::get('/admin/dashboard', function () {
-    return view('admin.dashboard');
-})->name('admin.dashboard');
+Route::prefix('admin')->group(function () {
+    Route::get('/dashboard', function () {
+        return view('admin.dashboard');
+    })->name('admin.dashboard');
+
+    Route::get('/dokumen', function () {
+        return view('admin.dokumen');
+    })->name('admin.dokumen');
+
+    Route::get('/kemenag', function () {
+        return view('admin.kemenag');
+    })->name('admin.kemenag');
+
+    Route::get('/hotel', function () {
+        return view('admin.hotel');
+    })->name('admin.hotel');
+
+    Route::get('/manifest', function () {
+        return view('admin.manifest');
+    })->name('admin.manifest');
+});
 
 // Route untuk Proses Logout Admin/User
 Route::post('/logout', function (\Illuminate\Http\Request $request) {

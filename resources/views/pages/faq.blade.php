@@ -26,20 +26,6 @@
                 </p>
             </div>
 
-            <div class="flex flex-wrap items-center gap-6 pt-4 text-xs sm:text-sm text-emerald-100 font-serif border-t border-emerald-900/60">
-                <div class="flex items-center gap-2">
-                    <span class="text-amber-400">📁</span>
-                    <span>7 Kategori</span>
-                </div>
-                <div class="flex items-center gap-2">
-                    <span class="text-amber-400">❓</span>
-                    <span>7 Pertanyaan Utama</span>
-                </div>
-                <div class="flex items-center gap-2">
-                    <span class="text-amber-400">🕒</span>
-                    <span>24/7 Bantuan</span>
-                </div>
-            </div>
         </div>
     </div>
 
@@ -78,7 +64,7 @@
         <!-- Kategori 1: Persyaratan Dokumen -->
         <div id="kategori-dokumen" class="space-y-4 scroll-mt-28">
             <div class="flex items-center gap-3 pb-2 border-b border-stone-200/80">
-                <span class="text-xl">📁</span>
+                
                 <h2 class="text-xl sm:text-2xl font-bold text-[#0B3B24] font-serif">Persyaratan Dokumen Umroh</h2>
             </div>
             <details class="group bg-white rounded-2xl shadow-xs border border-stone-200/80 overflow-hidden transition duration-300">
@@ -86,7 +72,7 @@
                     <span class="text-base sm:text-lg font-bold text-[#0B3B24] font-serif group-hover:text-amber-800 transition">
                         Dokumen apa saja yang menjadi persyaratan utama Umroh?
                     </span>
-                    <span class="w-8 h-8 rounded-full bg-stone-100 text-[#0B3B24] flex items-center justify-center font-bold text-lg shrink-0 transition-transform duration-300 group-open:rotate-45 group-open:bg-amber-100 group-open:text-amber-800">+</span>
+                    <span class="material-symbols-outlined">keyboard_arrow_down</span>
                 </summary>
                 <div class="px-6 sm:px-7 pb-6 pt-2 border-t border-stone-100">
                     <p class="text-stone-700 text-sm sm:text-base leading-relaxed">
@@ -100,7 +86,7 @@
         <!-- Kategori 2: Paspor -->
         <div id="kategori-paspor" class="space-y-4 scroll-mt-28">
             <div class="flex items-center gap-3 pb-2 border-b border-stone-200/80">
-                <span class="text-xl">🛂</span>
+                
                 <h2 class="text-xl sm:text-2xl font-bold text-[#0B3B24] font-serif">Paspor Jamaah</h2>
             </div>
             <details class="group bg-white rounded-2xl shadow-xs border border-stone-200/80 overflow-hidden transition duration-300">
@@ -108,7 +94,7 @@
                     <span class="text-base sm:text-lg font-bold text-[#0B3B24] font-serif group-hover:text-amber-800 transition">
                         Apa saja ketentuan nama pada paspor untuk keberangkatan umroh?
                     </span>
-                    <span class="w-8 h-8 rounded-full bg-stone-100 text-[#0B3B24] flex items-center justify-center font-bold text-lg shrink-0 transition-transform duration-300 group-open:rotate-45 group-open:bg-amber-100 group-open:text-amber-800">+</span>
+                    <span class="material-symbols-outlined">keyboard_arrow_down</span>
                 </summary>
                 <div class="px-6 sm:px-7 pb-6 pt-2 border-t border-stone-100">
                     <p class="text-stone-700 text-sm sm:text-base leading-relaxed">
@@ -122,7 +108,7 @@
         <!-- Kategori 3: Buku Kuning Meningitis -->
         <div id="kategori-meningitis" class="space-y-4 scroll-mt-28">
             <div class="flex items-center gap-3 pb-2 border-b border-stone-200/80">
-                <span class="text-xl">💉</span>
+                
                 <h2 class="text-xl sm:text-2xl font-bold text-[#0B3B24] font-serif">Buku Kuning Meningitis</h2>
             </div>
             <details class="group bg-white rounded-2xl shadow-xs border border-stone-200/80 overflow-hidden transition duration-300">
@@ -130,7 +116,7 @@
                     <span class="text-base sm:text-lg font-bold text-[#0B3B24] font-serif group-hover:text-amber-800 transition">
                         Apakah vaksin meningitis (ICV) wajib bagi setiap jamaah umroh?
                     </span>
-                    <span class="w-8 h-8 rounded-full bg-stone-100 text-[#0B3B24] flex items-center justify-center font-bold text-lg shrink-0 transition-transform duration-300 group-open:rotate-45 group-open:bg-amber-100 group-open:text-amber-800">+</span>
+                   <span class="material-symbols-outlined">keyboard_arrow_down</span>
                 </summary>
                 <div class="px-6 sm:px-7 pb-6 pt-2 border-t border-stone-100">
                     <p class="text-stone-700 text-sm sm:text-base leading-relaxed">
@@ -144,7 +130,7 @@
         <!-- Kategori 4: Perlengkapan Umroh -->
         <div id="kategori-perlengkapan" class="space-y-4 scroll-mt-28">
             <div class="flex items-center gap-3 pb-2 border-b border-stone-200/80">
-                <span class="text-xl">🧳</span>
+                
                 <h2 class="text-xl sm:text-2xl font-bold text-[#0B3B24] font-serif">Perlengkapan Umroh</h2>
             </div>
             <details class="group bg-white rounded-2xl shadow-xs border border-stone-200/80 overflow-hidden transition duration-300">
@@ -152,7 +138,7 @@
                     <span class="text-base sm:text-lg font-bold text-[#0B3B24] font-serif group-hover:text-amber-800 transition">
                         Apa saja perlengkapan yang akan didapatkan dari ROZWIA?
                     </span>
-                    <span class="w-8 h-8 rounded-full bg-stone-100 text-[#0B3B24] flex items-center justify-center font-bold text-lg shrink-0 transition-transform duration-300 group-open:rotate-45 group-open:bg-amber-100 group-open:text-amber-800">+</span>
+                    <span class="material-symbols-outlined">keyboard_arrow_down</span>
                 </summary>
                 <div class="px-6 sm:px-7 pb-6 pt-2 border-t border-stone-100">
                     <p class="text-stone-700 text-sm sm:text-base leading-relaxed">
@@ -166,7 +152,7 @@
         <!-- Kategori 5: Manasik -->
         <div id="kategori-manasik" class="space-y-4 scroll-mt-28">
             <div class="flex items-center gap-3 pb-2 border-b border-stone-200/80">
-                <span class="text-xl">🕋</span>
+                
                 <h2 class="text-xl sm:text-2xl font-bold text-[#0B3B24] font-serif">Manasik Umroh</h2>
             </div>
             <details class="group bg-white rounded-2xl shadow-xs border border-stone-200/80 overflow-hidden transition duration-300">
@@ -174,7 +160,7 @@
                     <span class="text-base sm:text-lg font-bold text-[#0B3B24] font-serif group-hover:text-amber-800 transition">
                         Kapan kegiatan pelatihan manasik umroh dilaksanakan sebelum keberangkatan?
                     </span>
-                    <span class="w-8 h-8 rounded-full bg-stone-100 text-[#0B3B24] flex items-center justify-center font-bold text-lg shrink-0 transition-transform duration-300 group-open:rotate-45 group-open:bg-amber-100 group-open:text-amber-800">+</span>
+                    <span class="material-symbols-outlined">keyboard_arrow_down</span>
                 </summary>
                 <div class="px-6 sm:px-7 pb-6 pt-2 border-t border-stone-100">
                     <p class="text-stone-700 text-sm sm:text-base leading-relaxed">
@@ -188,7 +174,7 @@
         <!-- Kategori 6: Persiapan Keberangkatan -->
         <div id="kategori-keberangkatan" class="space-y-4 scroll-mt-28">
             <div class="flex items-center gap-3 pb-2 border-b border-stone-200/80">
-                <span class="text-xl">✈️</span>
+                
                 <h2 class="text-xl sm:text-2xl font-bold text-[#0B3B24] font-serif">Persiapan Keberangkatan</h2>
             </div>
             <details class="group bg-white rounded-2xl shadow-xs border border-stone-200/80 overflow-hidden transition duration-300">
@@ -196,7 +182,7 @@
                     <span class="text-base sm:text-lg font-bold text-[#0B3B24] font-serif group-hover:text-amber-800 transition">
                         Di mana titik kumpul (meeting point) saat hari keberangkatan?
                     </span>
-                    <span class="w-8 h-8 rounded-full bg-stone-100 text-[#0B3B24] flex items-center justify-center font-bold text-lg shrink-0 transition-transform duration-300 group-open:rotate-45 group-open:bg-amber-100 group-open:text-amber-800">+</span>
+                    <span class="material-symbols-outlined">keyboard_arrow_down</span>
                 </summary>
                 <div class="px-6 sm:px-7 pb-6 pt-2 border-t border-stone-100">
                     <p class="text-stone-700 text-sm sm:text-base leading-relaxed">
@@ -210,7 +196,7 @@
         <!-- Kategori 7: Health Care -->
         <div id="kategori-healthcare" class="space-y-4 scroll-mt-28">
             <div class="flex items-center gap-3 pb-2 border-b border-stone-200/80">
-                <span class="text-xl">🩺</span>
+                
                 <h2 class="text-xl sm:text-2xl font-bold text-[#0B3B24] font-serif">Health Care & Kesehatan</h2>
             </div>
             <details class="group bg-white rounded-2xl shadow-xs border border-stone-200/80 overflow-hidden transition duration-300">
@@ -218,7 +204,7 @@
                     <span class="text-base sm:text-lg font-bold text-[#0B3B24] font-serif group-hover:text-amber-800 transition">
                         Apakah ada pendampingan medis atau dokter selama di Tanah Suci?
                     </span>
-                    <span class="w-8 h-8 rounded-full bg-stone-100 text-[#0B3B24] flex items-center justify-center font-bold text-lg shrink-0 transition-transform duration-300 group-open:rotate-45 group-open:bg-amber-100 group-open:text-amber-800">+</span>
+                    <span class="material-symbols-outlined">keyboard_arrow_down</span>
                 </summary>
                 <div class="px-6 sm:px-7 pb-6 pt-2 border-t border-stone-100">
                     <p class="text-stone-700 text-sm sm:text-base leading-relaxed">

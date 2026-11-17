@@ -10,12 +10,13 @@
     <!-- Alpine.js -->
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
 
-<body class="bg-[#F4EFE6] font-sans text-stone-800 antialiased min-h-screen flex" x-data="{ currentTab: 'dashboard' }">
+<body class="bg-[#F4EFE6] font-sans text-stone-800 antialiased min-h-screen flex">
 
-    <!-- ================= SIDEBAR KIRI MENPEL PENUH (FIXED & FULL HEIGHT) ================= -->
+    <!-- ================= SIDEBAR KIRI MENEMPEL PENUH ================= -->
     <aside class="w-72 bg-[#0B3B24] text-[#E5D3B3] flex flex-col justify-between fixed inset-y-0 left-0 z-40 shadow-xl p-6">
         
         <div class="space-y-8">
@@ -28,56 +29,44 @@
                 </div>
             </div>
 
-            <!-- Menu Navigasi Sidebar -->
-            <nav class="space-y-2 font-serif text-sm">
-                <!-- 1. Dashboard & Keuangan -->
-                <button @click="currentTab = 'dashboard'" 
-                        :class="currentTab === 'dashboard' ? 'bg-[#E5D3B3] text-[#0B3B24] font-bold shadow-md' : 'text-[#E5D3B3] hover:bg-emerald-900/60'"
-                        class="w-full flex items-center gap-3 px-4 py-3 rounded-2xl transition text-left cursor-pointer">
-                    
-                    <span>Dashboard & Keuangan</span>
-                </button>
+            <!-- Menu Navigasi Sidebar (Gunakan link <a> dengan route Laravel yang sesuai) -->
+<nav class="space-y-2 font-serif text-sm">
+    <a href="{{ route('admin.dashboard') }}" 
+       class="w-full flex items-center gap-3 px-4 py-3 rounded-2xl transition text-left {{ request()->routeIs('admin.dashboard') ? 'bg-[#E5D3B3] text-[#0B3B24] font-bold shadow-md' : 'text-[#E5D3B3] hover:bg-emerald-900/60' }}">
+        <span class="material-symbols-outlined">finance</span>
+        <span>Dashboard & Keuangan</span>
+    </a>
 
-                <!-- 2. Verifikasi Dokumen -->
-                <button @click="currentTab = 'dokumen'" 
-                        :class="currentTab === 'dokumen' ? 'bg-[#E5D3B3] text-[#0B3B24] font-bold shadow-md' : 'text-[#E5D3B3] hover:bg-emerald-900/60'"
-                        class="w-full flex items-center gap-3 px-4 py-3 rounded-2xl transition text-left cursor-pointer">
-                    
-                    <span>Verifikasi Dokumen</span>
-                </button>
+    <a href="{{ route('admin.dokumen') }}" 
+       class="w-full flex items-center gap-3 px-4 py-3 rounded-2xl transition text-left {{ request()->routeIs('admin.dokumen') ? 'bg-[#E5D3B3] text-[#0B3B24] font-bold shadow-md' : 'text-[#E5D3B3] hover:bg-emerald-900/60' }}">
+        <span class="material-symbols-outlined">scan</span>
+        <span>Verifikasi Dokumen</span>
+    </a>
 
-                <!-- 3. Surat Kemenag & Visa -->
-                <button @click="currentTab = 'kemenag'" 
-                        :class="currentTab === 'kemenag' ? 'bg-[#E5D3B3] text-[#0B3B24] font-bold shadow-md' : 'text-[#E5D3B3] hover:bg-emerald-900/60'"
-                        class="w-full flex items-center gap-3 px-4 py-3 rounded-2xl transition text-left cursor-pointer">
-                    
-                    <span>Surat Kemenag & Visa</span>
-                </button>
+    <a href="{{ route('admin.kemenag') }}" 
+       class="w-full flex items-center gap-3 px-4 py-3 rounded-2xl transition text-left {{ request()->routeIs('admin.kemenag') ? 'bg-[#E5D3B3] text-[#0B3B24] font-bold shadow-md' : 'text-[#E5D3B3] hover:bg-emerald-900/60' }}">
+        <span class="material-symbols-outlined">passport</span>
+        <span>Surat Kemenag & Visa</span>
+    </a>
 
-                <!-- 4. Hotel & Pesawat -->
-                <button @click="currentTab = 'hotel'" 
-                        :class="currentTab === 'hotel' ? 'bg-[#E5D3B3] text-[#0B3B24] font-bold shadow-md' : 'text-[#E5D3B3] hover:bg-emerald-900/60'"
-                        class="w-full flex items-center gap-3 px-4 py-3 rounded-2xl transition text-left cursor-pointer">
-                    
-                    <span>Hotel & Pesawat</span>
-                </button>
+    <a href="{{ route('admin.hotel') }}" 
+       class="w-full flex items-center gap-3 px-4 py-3 rounded-2xl transition text-left {{ request()->routeIs('admin.hotel') ? 'bg-[#E5D3B3] text-[#0B3B24] font-bold shadow-md' : 'text-[#E5D3B3] hover:bg-emerald-900/60' }}">
+        <span class="material-symbols-outlined">flights_and_hotels</span>
+        <span>Hotel & Pesawat</span>
+    </a>
 
-                <!-- 5. Jadwal & Manifest -->
-                <button @click="currentTab = 'manifest'" 
-                        :class="currentTab === 'manifest' ? 'bg-[#E5D3B3] text-[#0B3B24] font-bold shadow-md' : 'text-[#E5D3B3] hover:bg-emerald-900/60'"
-                        class="w-full flex items-center gap-3 px-4 py-3 rounded-2xl transition text-left cursor-pointer">
-                    
-                    <span>Jadwal & Manifest</span>
-                </button>
-            </nav>
+    <a href="{{ route('admin.manifest') }}" 
+       class="w-full flex items-center gap-3 px-4 py-3 rounded-2xl transition text-left {{ request()->routeIs('admin.manifest') ? 'bg-[#E5D3B3] text-[#0B3B24] font-bold shadow-md' : 'text-[#E5D3B3] hover:bg-emerald-900/60' }}">
+        <span class="material-symbols-outlined">edit_calendar</span>
+        <span>Jadwal & Manifest</span>
+    </a>
+</nav>
         </div>
 
-        <!-- Profil Admin & Tombol Keluar di Bawah Sidebar -->
+        <!-- Profil Admin & Tombol Keluar -->
         <div class="pt-6 border-t border-emerald-800/80 flex items-center justify-between font-serif">
             <div class="flex items-center gap-3 overflow-hidden">
-                <div class="w-10 h-10 rounded-full bg-emerald-800 border border-[#E5D3B3]/40 flex items-center justify-center text-base shrink-0 text-white">
-                    👑
-                </div>
+                <span class="material-symbols-outlined">account_circle</span>
                 <div class="overflow-hidden">
                     <p class="text-xs font-bold text-white truncate">Super Admin</p>
                     <a href="/" class="text-[10px] text-emerald-300 hover:underline">← Beranda</a>
@@ -94,7 +83,7 @@
     </aside>
 
 
-    <!-- ================= AREA KONTEN KANAN ADMIN (DENGAN MARGIN KIRI SEBESAR LEBAR SIDEBAR) ================= -->
+    <!-- ================= AREA KONTEN KANAN ================= -->
     <main class="flex-1 ml-72 min-h-screen p-6 sm:p-10">
         <div class="max-w-6xl mx-auto space-y-6">
             @yield('content')
