@@ -146,7 +146,7 @@
                 <!-- Tentang Paket -->
                 <div class="bg-white rounded-3xl p-6 sm:p-8 shadow-sm border border-stone-200/80 space-y-3">
                     <h3 class="text-lg font-bold text-[#0B3B24] font-serif flex items-center gap-2">
-                        <span>🏛️</span> Tentang Paket
+                        <span class="material-symbols-outlined">box_edit</span> Tentang Paket
                     </h3>
                     <p class="text-stone-600 text-xs sm:text-sm leading-relaxed font-serif">
                         {{ $package['description'] }}
@@ -251,7 +251,7 @@
 
                     <div class="bg-white rounded-3xl p-6 shadow-sm border border-stone-200 space-y-4">
                         <h4 class="text-base font-bold text-[#0B3B24] font-serif flex items-center gap-2">
-                            <span>📜</span> Ketentuan & Dokumen
+                            <span class="material-symbols-outlined">edit_note</span> Ketentuan & Dokumen
                         </h4>
                         <ul class="space-y-2 text-xs font-serif text-stone-700">
                             <li>✔️ Paspor yang masih berlaku min. 8 bulan</li>

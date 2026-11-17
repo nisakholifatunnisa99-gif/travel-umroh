@@ -39,7 +39,7 @@
             <!-- Tombol Login Memicu Pop-Up Modal -->
             <div class="flex items-center gap-3">
                 <button @click="loginOpen = true" class="flex items-center gap-2 bg-amber-500 hover:bg-amber-400 text-emerald-950 px-5 py-2.5 rounded-xl text-sm font-bold shadow-sm transition transform hover:scale-105 font-serif cursor-pointer">
-                    <span>🔑</span> Login
+                    <span class="material-symbols-outlined">person</span> Login
                 </button>
             </div>
         </div>

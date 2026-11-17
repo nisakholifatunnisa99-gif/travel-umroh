@@ -73,7 +73,7 @@
                 <div class="bg-white rounded-3xl p-6 sm:p-8 shadow-sm border border-stone-200/80 grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
                     <div class="md:col-span-7 space-y-3">
                         <h3 class="text-lg font-bold text-[#0B3B24] font-serif flex items-center gap-2">
-                            <span>🏛️</span> Tentang Paket
+                            <span class="material-symbols-outlined">box_edit</span> Tentang Paket
                         </h3>
                         <p class="text-stone-600 text-xs sm:text-sm leading-relaxed font-serif">
                             {{ $package['description'] }}
@@ -87,7 +87,7 @@
                 <!-- Jenis Layanan Haji -->
                 <div class="space-y-6">
                     <h3 class="text-xl font-bold text-[#0B3B24] font-serif flex items-center gap-2">
-                        <span>⭐</span> Jenis Layanan Haji
+                        <span class="material-symbols-outlined">volunteer_activism</span> Jenis Layanan Haji
                     </h3>
                     <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
                         <div class="bg-white rounded-2xl p-4 shadow-sm border border-stone-200 space-y-2">
@@ -117,7 +117,7 @@
                 <!-- RANGKAIAN IBADAH HAJI (DIJADIKAN 1 TABEL PROFESIONAL) -->
                 <div class="bg-white rounded-3xl p-6 sm:p-8 shadow-sm border border-stone-200/80 space-y-6">
                     <h3 class="text-xl font-bold text-[#0B3B24] font-serif flex items-center gap-2">
-                        <span>✈️</span> Rangkaian Ibadah Haji
+                        <span class="material-symbols-outlined">travel</span> Rangkaian Ibadah Haji
                     </h3>
                     
                     <div class="overflow-x-auto rounded-2xl border border-stone-200">
@@ -173,7 +173,7 @@
                 <!-- Pilihan Kamar dan Hotel -->
                 <div class="space-y-6">
                     <h3 class="text-xl font-bold text-[#0B3B24] font-serif flex items-center gap-2">
-                        <span>🏨</span> Pilihan Kamar dan Hotel
+                        <span class="material-symbols-outlined">night_shelter</span> Pilihan Kamar dan Hotel
                     </h3>
 
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
@@ -219,7 +219,7 @@
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                     <div class="bg-white rounded-3xl p-6 shadow-sm border border-stone-200 space-y-4">
                         <h4 class="text-base font-bold text-[#0B3B24] font-serif flex items-center gap-2">
-                            <span>💼</span> Fasilitas Paket
+                            <span class="material-symbols-outlined">checked_bag</span> Fasilitas Paket
                         </h4>
                         <ul class="space-y-2 text-xs font-serif text-stone-700">
                             @foreach($package['fasilitas'] as $fasilitas)
@@ -230,7 +230,7 @@
 
                     <div class="bg-white rounded-3xl p-6 shadow-sm border border-stone-200 space-y-4">
                         <h4 class="text-base font-bold text-[#0B3B24] font-serif flex items-center gap-2">
-                            <span>📍</span> Destinasi
+                            <span class="material-symbols-outlined">pin_drop</span> Destinasi
                         </h4>
                         <div class="relative h-28 rounded-xl overflow-hidden">
                             <img src="https://images.unsplash.com/photo-1591604129939-f1efa4d9f7fa?auto=format&fit=crop&q=80&w=500" alt="Destinasi" class="w-full h-full object-cover">
@@ -243,7 +243,7 @@
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                     <div class="bg-white rounded-3xl p-6 shadow-sm border border-stone-200 space-y-4">
                         <h4 class="text-base font-bold text-[#0B3B24] font-serif flex items-center gap-2">
-                            <span>📜</span> Ketentuan Paket
+                            <span class="material-symbols-outlined">edit_note</span> Ketentuan Paket
                         </h4>
                         <ol class="space-y-2 text-xs font-serif text-stone-700 list-decimal list-inside">
                             <li>Pendaftaran dengan melengkapi dokumen sesuai ketentuan</li>
@@ -255,7 +255,7 @@
 
                     <div class="bg-white rounded-3xl p-6 shadow-sm border border-stone-200 space-y-4">
                         <h4 class="text-base font-bold text-[#0B3B24] font-serif flex items-center gap-2">
-                            <span>📁</span> Dokumen Yang Disiapkan
+                            <span class="material-symbols-outlined">edit_note</span> Dokumen Yang Disiapkan
                         </h4>
                         <ul class="space-y-2 text-xs font-serif text-stone-700">
                             <li>✔️ Paspor</li>
