@@ -9,6 +9,7 @@
     <!-- 1. HERO SECTION FAQ (HIJAU TUA) -->
     <div class="relative w-full bg-[#0B3B24] overflow-hidden shadow-lg pt-32 pb-16 px-4 sm:px-6 lg:px-8">
         <div class="absolute right-0 top-0 w-96 h-96 bg-emerald-900/30 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute inset-0 opacity-20 bg-cover bg-center" style="background-image: url('{{ asset('img/about-us.jpg') }}')"></div>
 
         <div class="relative z-10 max-w-5xl mx-auto space-y-6">
             <div class="flex items-center gap-2 text-xs text-amber-200/80 font-serif">

@@ -11,7 +11,7 @@
     
     <!-- Latar Belakang Gambar dengan Overlay Gradasi & Efek Depth -->
     <div class="absolute inset-0 z-0">
-        <img src="https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&q=80&w=1600" alt="Background Masjidil Haram" class="w-full h-full object-cover opacity-20 transform scale-105 animate-pulse duration-10000">
+        <img src="{{ asset('img/makkah-home.jpg') }}" alt="Background Masjidil Haram" class="w-full h-full object-cover opacity-20 transform scale-105 animate-pulse duration-10000">
         <div class="absolute inset-0 bg-gradient-to-b from-[#0B3B24]/90 via-[#0B3B24]/70 to-[#0B3B24]"></div>
     </div>
 
@@ -43,7 +43,7 @@
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
             </a>
             <a href="https://wa.me/6289518829438?text=Assalamualaikum%20ROZWIA,%20saya%20ingin%20berkonsultasi%20mengenai%20perjalanan%20ibadah." target="_blank" class="bg-emerald-900/80 hover:bg-emerald-800 text-white border border-emerald-700/70 font-serif font-semibold text-xs sm:text-sm px-7 py-4 rounded-2xl backdrop-blur-md shadow-md transition transform hover:-translate-y-1 flex items-center gap-2">
-                <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 256 258">
+                <svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 256 258">
 	                                <path d="M0 0h256v258H0z" fill="none" />
 	                                    <defs>
 		                                    <linearGradient id="SVGK3KZq49U" x1="50%" x2="50%" y1="100%" y2="0%">
@@ -98,7 +98,7 @@
             <div class="bg-white rounded-3xl p-6 sm:p-8 shadow-sm border border-stone-200/80 flex flex-col justify-between hover:shadow-md transition duration-300">
                 <div class="space-y-6">
                     <div class="relative h-64 sm:h-72 rounded-2xl overflow-hidden shadow-xs">
-                        <img src="https://images.unsplash.com/photo-1591604129939-f1efa4d9f7fa?auto=format&fit=crop&q=80&w=800" alt="Umroh Reguler" class="w-full h-full object-cover">
+                        <img src="{{ asset('img/pilihan-paket.jpg') }}" alt="Umroh Reguler" class="w-full h-full object-cover">
                     </div>
 
                     <div class="space-y-1">
@@ -130,7 +130,7 @@
             <div class="bg-white rounded-3xl p-6 sm:p-8 shadow-sm border border-stone-200/80 flex flex-col justify-between hover:shadow-md transition duration-300">
                 <div class="space-y-6">
                     <div class="relative h-64 sm:h-72 rounded-2xl overflow-hidden shadow-xs">
-                        <img src="https://images.unsplash.com/photo-1565552420067-1d6741972754?auto=format&fit=crop&q=80&w=800" alt="Umroh VIP" class="w-full h-full object-cover">
+                        <img src="{{ asset('img/pilihan-paket.jpg') }}" alt="Umroh VIP" class="w-full h-full object-cover">
                     </div>
 
                     <div class="space-y-1">
@@ -167,6 +167,89 @@
             </a>
         </div>
 
+    </section>
+    <!-- ===================================================================== -->
+    <!-- 3. SECTION PAKET HAJI KHUSUS ROZWIA (POSISI DI BAWAH PILIHAN UMROH)  -->
+    <!-- ===================================================================== -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div class="bg-[#F4EFE6] rounded-[40px] border border-stone-200/80 p-8 sm:p-12 shadow-sm">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+                
+                <!-- Kolom Kiri: Gambar dengan Bentuk Lengkung Unik & Tulisan Dream Haji -->
+                <div class="lg:col-span-5 relative">
+                    <div class="relative h-[420px] sm:h-[480px] w-full rounded-t-[180px] rounded-b-[32px] overflow-hidden shadow-md">
+                        <img src="{{ asset('img/paket-haji.jpg') }}" alt="Paket Haji Khusus ROZWIA" class="w-full h-full object-cover">
+                        <!-- Overlay tipis agar teks lebih kontras -->
+                        <div class="absolute inset-0 bg-black/20"></div>
+                        <!-- Teks Artistik 'Dream Haji' -->
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <span class="text-white text-5xl sm:text-6xl italic tracking-wide drop-shadow-lg opacity-90 select-none" style="font-family: 'Abhaya Libre', serif; font-weight: 600;">
+                                Dream Haji
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Kolom Kanan: Konten Teks & Fitur Keunggulan -->
+                <div class="lg:col-span-7 space-y-6" style="font-family: 'Abhaya Libre', serif;">
+                    
+                    <!-- Badge Program -->
+                    <div>
+                        <span class="inline-block border border-stone-300 text-stone-800 text-xs font-semibold px-4 py-1.5 rounded-full uppercase tracking-wider bg-white/60 font-sans">
+                            PROGRAM HAJI KHUSUS
+                        </span>
+                    </div>
+
+                    <!-- Judul & Deskripsi -->
+                    <div class="space-y-3">
+                        <h2 class="text-3xl sm:text-4xl font-semibold text-[#0B3B24]" style="font-family: 'Abhaya Libre', serif;">
+                            Paket Haji Khusus ROZWIA
+                        </h2>
+                        <p class="text-xs sm:text-sm text-stone-600 font-sans leading-relaxed">
+                            Wujudkan perjalanan ibadah haji yang nyaman dan berkesan bersama ROZWIA dengan pelayanan serta pendamping selama perjalanan.
+                        </p>
+                    </div>
+
+                    <!-- Info Pendaftaran -->
+                    <p class="text-xs font-bold text-amber-800 font-sans tracking-wide">
+                        Pendaftaran dibuka &bull; Keberangkatan 2027
+                    </p>
+
+                    <!-- Daftar Tombol / Fitur Keunggulan -->
+                    <div class="space-y-3 font-sans pt-2">
+                        <!-- Fitur 1 -->
+                        <div class="bg-white rounded-2xl p-4 border border-stone-200 shadow-xs flex items-center gap-4 hover:border-amber-700/50 transition">
+                            <span class="material-symbols-outlined text-amber-500">travel</span>
+                            <span class="text-xs sm:text-sm font-bold text-stone-800">Jadwal keberangkatan</span>
+                        </div>
+
+                        <!-- Fitur 2 -->
+                        <div class="bg-white rounded-2xl p-4 border border-stone-200 shadow-xs flex items-center gap-4 hover:border-amber-700/50 transition">
+                           <span class="material-symbols-outlined text-amber-500">group</span>
+                            <span class="text-xs sm:text-sm font-bold text-stone-800">Pendamping Jamaah</span>
+                        </div>
+
+                        <!-- Fitur 3 -->
+                        <div class="bg-white rounded-2xl p-4 border border-stone-200 shadow-xs flex items-center gap-4 hover:border-amber-700/50 transition">
+                            <span class="material-symbols-outlined text-amber-500">home</span>
+                            <span class="text-xs sm:text-sm font-bold text-stone-800">Akomodasi Premiun</span>
+                        </div>
+                    </div>
+
+                    <!-- Tombol Aksi Bawah -->
+                    <div class="flex flex-wrap items-center gap-4 pt-4 font-sans">
+                        <a href="{{ route('paket.detail', 3) }}" class="bg-[#0B3B24] hover:bg-emerald-900 text-white font-bold text-xs sm:text-sm px-7 py-3.5 rounded-full transition shadow-md">
+                            Lihat Detail Haji
+                        </a>
+                        <a href="#" class="bg-[#D4B996]/60 hover:bg-[#D4B996] text-stone-900 border border-stone-300 font-bold text-xs sm:text-sm px-7 py-3.5 rounded-full transition shadow-xs">
+                            Konsultasi Haji
+                        </a>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
     </section>
 
 

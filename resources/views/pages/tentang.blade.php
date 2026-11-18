@@ -9,7 +9,7 @@
     
     <!-- BANNER HERO HEADER -->
     <div class="relative w-full bg-[#0B3B24] overflow-hidden shadow-md pt-36 pb-20 px-4 sm:px-6 lg:px-8 mb-16">
-        <div class="absolute inset-0 opacity-20 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1591604129939-f1efa4d9f7fa?auto=format&fit=crop&q=80&w=1200')"></div>
+        <div class="absolute inset-0 opacity-20 bg-cover bg-center" style="background-image: url('{{ asset('img/about-us.jpg') }}')"></div>
         
         <div class="relative z-10 max-w-4xl mx-auto text-center space-y-4">
             <p class="text-xs text-amber-300 font-serif tracking-widest uppercase">
@@ -63,7 +63,7 @@
             <!-- Kolom Gambar / Visual Estetik -->
             <div class="lg:col-span-5">
                 <div class="relative h-[420px] rounded-[32px] overflow-hidden shadow-xl border-4 border-white">
-                    <img src="https://images.unsplash.com/photo-1565552420067-1d6741972754?auto=format&fit=crop&q=80&w=800" alt="Masjid Nabawi" class="w-full h-full object-cover">
+                    <img src="{{ asset('img/Masjid-nabawi.jpg') }}" alt="Masjid Nabawi" class="w-full h-full object-cover">
                     <div class="absolute inset-0 bg-gradient-to-t from-emerald-950/70 via-transparent to-transparent flex items-end p-8">
                         <p class="text-white text-xs sm:text-sm font-serif italic">
                             "Melayani Tamu Allah dengan sepenuh hati, membimbing ibadah sesuai sunnah."

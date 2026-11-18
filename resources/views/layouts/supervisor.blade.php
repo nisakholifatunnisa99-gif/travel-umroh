@@ -1,83 +1,71 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="id" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@yield('title', 'Supervisor Panel - ROZWIA')</title>
-    <!-- Tailwind CSS v4 & Alpine.js -->
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
-    <style>
-        body { font-family: 'Plus Jakarta Sans', sans-serif; }
-        h1, h2, h3, .font-serif { font-family: 'Playfair Display', serif; }
-    </style>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
-<body class="bg-[#FDFBF7] text-stone-800 antialiased overflow-x-hidden">
+<body class="bg-[#F4EFE6] font-sans text-stone-800 antialiased min-h-screen flex">
 
-    <!-- Container Utama Supervisor -->
-    <div class="min-h-screen flex">
-        
-        <!-- SIDEBAR KIRI (FIXED & FULL ACCESSIBLE) -->
-        <aside class="w-72 bg-[#0B3B24] text-white flex flex-col justify-between fixed inset-y-0 left-0 z-50 shadow-2xl">
-            <div class="p-6 space-y-8">
-                <!-- Brand / Logo -->
-                <div class="space-y-1 pt-2">
-                    <h2 class="text-2xl font-extrabold font-serif tracking-wider text-white">ROZWIA</h2>
-                    <p class="text-[11px] text-amber-200/80 font-serif tracking-widest uppercase">ISLAMIC TRAVEL</p>
-                </div>
-
-                <!-- Menu Navigasi Sidebar -->
-                <nav class="space-y-2 text-sm font-serif">
-                    <a href="{{ route('supervisor.perusahaan') }}" 
-                       class="{{ request()->routeIs('supervisor.perusahaan') ? 'bg-emerald-950/90 text-amber-300 font-bold border-l-4 border-amber-400 pl-4' : 'text-stone-300 hover:bg-emerald-900/50 pl-5' }} w-full text-left py-3.5 rounded-r-xl transition flex items-center gap-3 block">
-                        <span>🏢</span> Data Perusahaan
-                    </a>
-
-                    <a href="{{ route('supervisor.paket.tambah') }}" 
-                       class="{{ request()->routeIs('supervisor.paket.tambah') ? 'bg-emerald-950/90 text-amber-300 font-bold border-l-4 border-amber-400 pl-4' : 'text-stone-300 hover:bg-emerald-900/50 pl-5' }} w-full text-left py-3.5 rounded-r-xl transition flex items-center gap-3 block">
-                        <span>➕</span> Tambah Paket
-                    </a>
-
-                    <a href="{{ route('supervisor.akun') }}" 
-                       class="{{ request()->routeIs('supervisor.akun') ? 'bg-emerald-950/90 text-amber-300 font-bold border-l-4 border-amber-400 pl-4' : 'text-stone-300 hover:bg-emerald-900/50 pl-5' }} w-full text-left py-3.5 rounded-r-xl transition flex items-center gap-3 block">
-                        <span>👥</span> Akun Aktif & Excel
-                    </a>
-
-                    <a href="{{ route('supervisor.manifest') }}" 
-                       class="{{ request()->routeIs('supervisor.manifest') ? 'bg-emerald-950/90 text-amber-300 font-bold border-l-4 border-amber-400 pl-4' : 'text-stone-300 hover:bg-emerald-900/50 pl-5' }} w-full text-left py-3.5 rounded-r-xl transition flex items-center gap-3 block">
-                        <span>📋</span> Monitoring Manifest
-                    </a>
-                </nav>
-            </div>
-
-            <!-- Tombol Logout di Bawah Sidebar -->
-            <div class="p-6 border-t border-emerald-900/60">
-                <form action="{{ route('supervisor.logout') }}" method="POST">
-                    @csrf
-                    <button type="submit" class="w-full flex items-center justify-center gap-2 bg-rose-950/60 hover:bg-rose-900 text-rose-200 font-serif font-bold text-xs py-3 rounded-xl transition border border-rose-800/50 cursor-pointer">
-                        <span>🚪</span> Keluar (Logout)
-                    </button>
-                </form>
-            </div>
-        </aside>
-
-        <!-- KONTEN UTAMA DI KANAN -->
-        <main class="flex-1 ml-72 p-8 lg:p-12 space-y-8">
-            <!-- Top Bar Header Khusus Supervisor (Bersih tanpa Navbar Publik) -->
-            <div class="flex items-center justify-between bg-white px-6 py-4 rounded-2xl shadow-xs border border-stone-200/80">
-                <div class="flex items-center gap-3">
-                    <span class="text-xs font-bold uppercase tracking-widest bg-amber-100 text-amber-900 px-3 py-1 rounded-full">Supervisor Panel</span>
-                    <span class="text-xs text-stone-500">Sistem Pengelolaan Umroh & Haji ROZWIA</span>
-                </div>
-                <div class="text-xs font-bold text-[#0B3B24]">
-                    🟢 Supervisor Online
+    <!-- SIDEBAR KIRI -->
+    <aside class="w-72 bg-[#0B3B24] text-[#E5D3B3] flex flex-col justify-between fixed inset-y-0 left-0 z-40 shadow-xl p-6">
+        <div class="space-y-8">
+            <div class="flex items-center gap-3 pb-4 border-b border-emerald-800/80 font-serif">
+                <img src="{{ asset('img/logo-rozwia.png') }}" alt="Logo Rozwia" class="w-10 h-10 object-contain">
+                <div class="leading-tight">
+                    <span class="block tracking-widest text-lg font-bold text-white">ROZWIA</span>
+                    <span class="block text-[9px] tracking-widest text-[#E5D3B3]">~ ISLAMIC TRAVEL ~</span>
                 </div>
             </div>
 
-            <!-- Konten Dinamis -->
-            @yield('supervisor_content')
-        </main>
-    </div>
+            <nav class="space-y-2 font-serif text-sm">
+                <a href="{{ route('supervisor.profile') }}" 
+                   class="w-full flex items-center gap-3 px-4 py-3 rounded-2xl transition text-left {{ request()->routeIs('supervisor.profile') ? 'bg-[#E5D3B3] text-[#0B3B24] font-bold shadow-md' : 'text-[#E5D3B3] hover:bg-emerald-900/60' }}">
+                    <span class="material-symbols-outlined">home_work</span> <span>Profile Perusahaan</span>
+                </a>
+                <a href="{{ route('supervisor.paket') }}" 
+                   class="w-full flex items-center gap-3 px-4 py-3 rounded-2xl transition text-left {{ request()->routeIs('supervisor.paket') ? 'bg-[#E5D3B3] text-[#0B3B24] font-bold shadow-md' : 'text-[#E5D3B3] hover:bg-emerald-900/60' }}">
+                    <span class="material-symbols-outlined">box_edit</span> <span>Kelola Paket</span>
+                </a>
+                <a href="{{ route('supervisor.users') }}" 
+                   class="w-full flex items-center gap-3 px-4 py-3 rounded-2xl transition text-left {{ request()->routeIs('supervisor.users') ? 'bg-[#E5D3B3] text-[#0B3B24] font-bold shadow-md' : 'text-[#E5D3B3] hover:bg-emerald-900/60' }}">
+                    <span class="material-symbols-outlined">person</span> <span>Daftar Akun Pengguna</span>
+                </a>
+                <a href="{{ route('supervisor.biaya') }}" 
+                   class="w-full flex items-center gap-3 px-4 py-3 rounded-2xl transition text-left {{ request()->routeIs('supervisor.biaya') ? 'bg-[#E5D3B3] text-[#0B3B24] font-bold shadow-md' : 'text-[#E5D3B3] hover:bg-emerald-900/60' }}">
+                    <span class="material-symbols-outlined">money_bag</span> <span>Total Biaya</span>
+                </a>
+            </nav>
+        </div>
+
+        <div class="pt-6 border-t border-emerald-800/80 flex flex-col space-y-4 font-serif">
+            <div class="flex items-center gap-3 overflow-hidden">
+                <div class="w-10 h-10 rounded-full bg-emerald-800 border border-[#E5D3B3]/40 flex items-center justify-center text-white">👤</div>
+                <div class="overflow-hidden leading-tight">
+                    <p class="text-xs font-bold text-white truncate">Supervisor</p>
+                    <span class="text-[10px] text-emerald-300">Akses Penuh</span>
+                </div>
+            </div>
+            <form action="{{ route('logout') ?? '#' }}" method="POST">
+                @csrf
+                <button type="submit" class="w-full py-2.5 bg-red-700 hover:bg-red-800 text-white text-xs font-bold rounded-xl transition cursor-pointer text-center shadow-md">
+                    Logout
+                </button>
+            </form>
+        </div>
+    </aside>
+
+    <!-- KONTEN UTAMA KANAN -->
+    <main class="flex-1 ml-72 min-h-screen p-6 sm:p-10">
+        <div class="max-w-6xl mx-auto space-y-6">
+            @yield('content')
+        </div>
+    </main>
+
 </body>
 </html>

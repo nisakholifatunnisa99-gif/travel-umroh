@@ -8,6 +8,7 @@
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <!-- Alpine.js -->
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Abhaya+Libre:wght@600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
@@ -16,16 +17,18 @@
     <!-- NAVBAR MELAYANG TERPISAH (FLOATING) -->
     <header class="w-full px-4 sm:px-8 pt-6 fixed top-0 z-50">
         <div class="max-w-7xl mx-auto bg-emerald-950/90 backdrop-blur-md rounded-2xl shadow-xl px-6 py-3.5 flex items-center justify-between border border-emerald-900/50">
-            <!-- Logo Rozwia -->
-            <div class="flex items-center gap-3">
-                <a href="/" class="flex items-center gap-2.5 text-white font-serif font-bold text-lg tracking-wider group">
-                    <span class="text-2xl transition-transform duration-300 group-hover:scale-110">🕌</span>
+            <!-- Logo Rozwia menggunakan Gambar Lokal -->
+                <div class="flex items-center gap-3">
+                    <a href="/" class="flex items-center gap-2.5 text-white font-serif font-bold text-lg tracking-wider group">
+            <!-- Ganti emoji dengan tag <img> dan arahkan ke folder public/images/ -->
+                <img src="{{ asset('img/logo-rozwia.png') }}" alt="Logo Rozwia" class="w-10 h-10 object-contain transition-transform duration-300 group-hover:scale-110">
+        
                     <div class="leading-tight">
                         <span class="block tracking-widest text-base">ROZWIA</span>
                         <span class="block text-[9px] tracking-widest text-amber-400 font-sans font-light">~ ISLAMIC TRAVEL ~</span>
                     </div>
-                </a>
-            </div>
+                    </a>
+                </div>
 
             <!-- Menu Navigasi Desktop -->
             <nav class="hidden md:flex items-center space-x-1 text-sm font-medium text-emerald-100">
@@ -58,12 +61,14 @@
                 <!-- Kolom 1: Logo & Deskripsi -->
                 <div class="lg:col-span-4 space-y-5">
                     <div class="flex items-center gap-3">
-                        <span class="text-3xl">🕌</span>
-                        <div class="leading-tight font-serif">
-                            <span class="block tracking-widest text-xl font-bold text-white">ROZWIA</span>
-                            <span class="block text-[10px] tracking-widest text-[#D4B996]">~ISLAMIC TRAVEL~</span>
-                        </div>
+                    <!-- Ubah emoji 🕌 menjadi tag <img> dengan helper asset() -->
+                        <img src="{{ asset('img/logo-rozwia.png') }}" alt="Logo Rozwia" class="w-10 h-10 object-contain">
+    
+                    <div class="leading-tight font-serif">
+                        <span class="block tracking-widest text-xl font-bold text-white">ROZWIA</span>
+                        <span class="block text-[10px] tracking-widest text-[#D4B996]">~ISLAMIC TRAVEL~</span>
                     </div>
+                </div>
                     <p class="text-xs sm:text-sm text-[#E8DFD1]/85 font-serif leading-relaxed max-w-xs">
                         Menemani langkah Anda menuju Baitullah dengan layanan yang amanah, nyaman, dan penuh keberkahan.
                     </p>

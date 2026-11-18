@@ -10,7 +10,8 @@
         
         <!-- ================= 1. HERO SECTION DETAIL UMROH (TIDAK TABRAKAN) ================= -->
         <div class="bg-[#0B3B24] rounded-[36px] overflow-hidden shadow-xl text-white p-6 sm:p-12 relative">
-            <div class="absolute inset-0 opacity-20 bg-cover bg-center pointer-events-none" style="background-image: url('{{ $package['image'] }}')"></div>
+            <div class="absolute inset-0 opacity-20 bg-cover bg-center pointer-events-none" style="background-image: url('http://127.0.0.1:8000/img/detail.jpg')"></div>
+            
             
             <div class="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
                 <!-- Kolom Kiri: Informasi Utama -->
@@ -65,7 +66,7 @@
                 <!-- Kolom Kanan: Gambar Banner -->
                 <div class="lg:col-span-5">
                     <div class="relative h-64 sm:h-80 rounded-3xl overflow-hidden shadow-2xl border-4 border-white/10">
-                        <img src="{{ $package['image'] }}" alt="{{ $package['name'] }}" class="w-full h-full object-cover">
+                        <img src="{{ asset('img/detail.jpg') }}" alt="{{ $package['name'] }}" class="w-full h-full object-cover">
                     </div>
                 </div>
             </div>
@@ -210,7 +211,7 @@
                         <div class="bg-white rounded-3xl p-4 shadow-sm border border-stone-200/80 space-y-4 flex flex-col justify-between">
                             <div class="space-y-3">
                                 <div class="relative h-44 rounded-2xl overflow-hidden">
-                                    <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&q=80&w=600" alt="Hotel Makkah" class="w-full h-full object-cover">
+                                    <img src="{{ asset('img/sheraton.jpg') }}" alt="Hotel Makkah" class="w-full h-full object-cover">
                                 </div>
                                 <div>
                                     <h4 class="text-lg font-bold text-[#0B3B24] font-serif">{{ $package['hotel_makkah'] }}</h4>
@@ -224,7 +225,7 @@
                         <div class="bg-white rounded-3xl p-4 shadow-sm border border-stone-200/80 space-y-4 flex flex-col justify-between">
                             <div class="space-y-3">
                                 <div class="relative h-44 rounded-2xl overflow-hidden">
-                                    <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&q=80&w=600" alt="Hotel Madinah" class="w-full h-full object-cover">
+                                    <img src="{{ asset('img/crowne.jpg') }}" alt="Hotel Madinah" class="w-full h-full object-cover">
                                 </div>
                                 <div>
                                     <h4 class="text-lg font-bold text-[#0B3B24] font-serif">{{ $package['hotel_madinah'] }}</h4>
@@ -243,10 +244,20 @@
                             <span class="material-symbols-outlined">checked_bag</span> Fasilitas Paket
                         </h4>
                         <ul class="space-y-2 text-xs font-serif text-stone-700">
-                            @foreach($package['fasilitas'] as $fasilitas)
-                            <li class="flex items-center gap-2">✔️ {{ $fasilitas }}</li>
-                            @endforeach
-                        </ul>
+                        <li class="flex items-center gap-2.5">
+                            <span class="material-symbols-outlined text-emerald-700 text-base">check_circle</span>
+                            <span>Tiket Pesawat</span>
+                        </li>
+                        <li class="flex items-center gap-2.5">
+                            <span class="material-symbols-outlined text-emerald-700 text-base">check_circle</span>
+                            <span>Hotel Bintang 4</span>
+                        </li>
+                        <li class="flex items-center gap-2.5">
+                            <span class="material-symbols-outlined text-emerald-700 text-base">check_circle</span>
+                            <span>Visa Umroh</span>
+                        </li>
+                        
+                    </ul>
                     </div>
 
                     <div class="bg-white rounded-3xl p-6 shadow-sm border border-stone-200 space-y-4">
@@ -254,11 +265,23 @@
                             <span class="material-symbols-outlined">edit_note</span> Ketentuan & Dokumen
                         </h4>
                         <ul class="space-y-2 text-xs font-serif text-stone-700">
-                            <li>✔️ Paspor yang masih berlaku min. 8 bulan</li>
-                            <li>✔️ Buku Vaksin Meningitis</li>
-                            <li>✔️ Pas Foto terbaru latar belakang putih</li>
-                            <li>✔️ Pendaftaran dan DP sesuai ketentuan travel</li>
-                        </ul>
+                        <li class="flex items-center gap-2.5">
+                            <span class="material-symbols-outlined text-emerald-700 text-base">check_circle</span>
+                            <span>Paspor yang masih berlaku min. 8 bulan</span>
+                        </li>
+                        <li class="flex items-center gap-2.5">
+                            <span class="material-symbols-outlined text-emerald-700 text-base">check_circle</span>
+                            <span>Buku Vaksin Meningitis</span>
+                        </li>
+                        <li class="flex items-center gap-2.5">
+                            <span class="material-symbols-outlined text-emerald-700 text-base">check_circle</span>
+                            <span>Pas Foto dan DP sesuai ketentuan putih</span>
+                        </li>
+                        <li class="flex items-center gap-2.5">
+                            <span class="material-symbols-outlined text-emerald-700 text-base">check_circle</span>
+                            <span>Pendaftaran dan DP sesuai ketentuan travel</span>
+                        </li>
+                    </ul>
                     </div>
                 </div>
 
@@ -335,7 +358,7 @@
                                 Daftar Paket Sekarang
                             </button>
                             <a href="https://wa.me/6289518829438?text=Assalamualaikum%20ROZWIA,%20saya%20ingin%20berkonsultasi%20mengenai%20paket%20{{ urlencode($package['name']) }}." target="_blank" class="w-full bg-[#25D366] hover:bg-[#20ba5a] text-white font-bold py-3.5 px-4 rounded-xl shadow-md transition text-xs flex items-center justify-center gap-2 text-center">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 256 258">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 256 258">
 	                                <path d="M0 0h256v258H0z" fill="none" />
 	                                    <defs>
 		                                    <linearGradient id="SVGK3KZq49U" x1="50%" x2="50%" y1="100%" y2="0%">

@@ -22,7 +22,7 @@
         <div class="space-y-8">
             <!-- Logo Header Sidebar -->
             <div class="flex items-center gap-3 pb-4 border-b border-emerald-800/80 font-serif">
-                <span class="text-3xl">🕌</span>
+                <img src="{{ asset('img/logo-rozwia.png') }}" alt="Logo Rozwia" class="w-10 h-10 object-contain">
                 <div class="leading-tight">
                     <span class="block tracking-widest text-lg font-bold text-white">ROZWIA</span>
                     <span class="block text-[9px] tracking-widest text-[#E5D3B3]">~ ADMIN PANEL ~</span>
@@ -33,26 +33,26 @@
 <nav class="space-y-2 font-serif text-sm">
     <a href="{{ route('admin.dashboard') }}" 
        class="w-full flex items-center gap-3 px-4 py-3 rounded-2xl transition text-left {{ request()->routeIs('admin.dashboard') ? 'bg-[#E5D3B3] text-[#0B3B24] font-bold shadow-md' : 'text-[#E5D3B3] hover:bg-emerald-900/60' }}">
-        <span class="material-symbols-outlined">finance</span>
-        <span>Dashboard & Keuangan</span>
+        <span class="material-symbols-outlined">home</span>
+        <span>Beranda</span>
     </a>
 
     <a href="{{ route('admin.dokumen') }}" 
        class="w-full flex items-center gap-3 px-4 py-3 rounded-2xl transition text-left {{ request()->routeIs('admin.dokumen') ? 'bg-[#E5D3B3] text-[#0B3B24] font-bold shadow-md' : 'text-[#E5D3B3] hover:bg-emerald-900/60' }}">
         <span class="material-symbols-outlined">scan</span>
-        <span>Verifikasi Dokumen</span>
+        <span>Dokumen Pribadi</span>
     </a>
 
     <a href="{{ route('admin.kemenag') }}" 
        class="w-full flex items-center gap-3 px-4 py-3 rounded-2xl transition text-left {{ request()->routeIs('admin.kemenag') ? 'bg-[#E5D3B3] text-[#0B3B24] font-bold shadow-md' : 'text-[#E5D3B3] hover:bg-emerald-900/60' }}">
         <span class="material-symbols-outlined">passport</span>
-        <span>Surat Kemenag & Visa</span>
+        <span>Status Surat Kemenag & Visa</span>
     </a>
 
     <a href="{{ route('admin.hotel') }}" 
        class="w-full flex items-center gap-3 px-4 py-3 rounded-2xl transition text-left {{ request()->routeIs('admin.hotel') ? 'bg-[#E5D3B3] text-[#0B3B24] font-bold shadow-md' : 'text-[#E5D3B3] hover:bg-emerald-900/60' }}">
         <span class="material-symbols-outlined">flights_and_hotels</span>
-        <span>Hotel & Pesawat</span>
+        <span>Administrasi Hotel & Pesawat</span>
     </a>
 
     <a href="{{ route('admin.manifest') }}" 

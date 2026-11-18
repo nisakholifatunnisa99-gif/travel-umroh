@@ -283,40 +283,6 @@ Route::prefix('user')->name('user.')->group(function () {
 });
 
 
-// ====================================================
-// AREA SUPERVISOR
-// ====================================================
-Route::prefix('supervisor')->name('supervisor.')->group(function () {
-    Route::get('/login', function () {
-        return view('supervisor.login');
-    })->name('login');
-
-    Route::post('/login', function (\Illuminate\Http\Request $request) {
-        if ($request->email === 'supervisor@rozwia.com' && $request->password === 'password123') {
-            session(['supervisor_logged_in' => true]);
-            return redirect()->route('supervisor.dashboard');
-        }
-        return back()->withErrors(['email' => 'Email atau password supervisor salah.']);
-    })->name('login.submit');
-
-    Route::post('/logout', function () {
-        session()->forget('supervisor_logged_in');
-        return redirect()->route('supervisor.login');
-    })->name('logout');
-
-    Route::group(['middleware' => function ($request, $next) {
-        if (!session('supervisor_logged_in')) {
-            return redirect()->route('supervisor.login');
-        }
-        return $next($request);
-    }], function () {
-        Route::view('/dashboard', 'supervisor.dashboard')->name('dashboard');
-        Route::view('/perusahaan', 'supervisor.perusahaan')->name('perusahaan');
-        Route::view('/paket/tambah', 'supervisor.tambah-paket')->name('paket.tambah');
-        Route::view('/akun', 'supervisor.akun-aktif')->name('akun');
-        Route::view('/manifest', 'supervisor.manifest')->name('manifest');
-    });
-});
 Route::post('/logout', function (Request $request) {
     auth()->logout(); // Logout user jika pakai auth bawaan
     $request->session()->invalidate();
@@ -352,3 +318,45 @@ Route::post('/logout', function (\Illuminate\Http\Request $request) {
     $request->session()->regenerateToken();
     return redirect('/');
 })->name('logout');
+
+
+
+
+Route::prefix('supervisor')->group(function () {
+    Route::get('/dashboard', function () {
+        return view('supervisor.dashboard');
+    })->name('supervisor.dashboard');
+
+    Route::get('/profile', function () {
+        return view('supervisor.profile');
+    })->name('supervisor.profile');
+
+    Route::get('/paket', function () {
+        return view('supervisor.paket');
+    })->name('supervisor.paket');
+
+    Route::get('/users', function () {
+        return view('supervisor.users');
+    })->name('supervisor.users');
+
+    // Pastikan rute ini ada karena dipanggil di dashboard.blade.php baris 74
+    Route::get('/biaya', function () {
+        return view('supervisor.biaya');
+    })->name('supervisor.biaya');
+});
+
+// Tambahkan rute ini di routes/web.php
+Route::get('/kontak', function () {
+    return view('pages.kontak'); // Sesuaikan dengan file view kontak Anda
+})->name('kontak');
+
+Route::get('/user/dokumen', function () {
+    return view('user.dokumen');
+})->name('user.dokumen');
+
+Route::get('/user/status', function () {
+    return view('user.status');
+})->name('user.status');
+Route::get('/user/profile', function () {
+    return view('user.profile');
+})->name('user.profile');

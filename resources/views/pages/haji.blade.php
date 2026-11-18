@@ -9,7 +9,7 @@
     
     <!-- BANNER HERO HEADER -->
     <div class="relative w-full bg-[#0B3B24] overflow-hidden shadow-md pt-36 pb-16 px-4 sm:px-6 lg:px-8 mb-12">
-        <div class="absolute inset-0 opacity-20 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&q=80&w=1200')"></div>
+        <div class="absolute inset-0 opacity-20 bg-cover bg-center" style="background-image: url('{{ asset('img/Hero.png') }}')"></div>
         
         <div class="relative z-10 max-w-7xl mx-auto space-y-3">
             <p class="text-xs text-amber-300 font-serif tracking-widest uppercase">
@@ -40,7 +40,7 @@
                     'route' => 'Makkah Madinah Arafah Muzdalifah Mina', 
                     'price' => 'Rp 53.543.779', 
                     'tag' => 'Reguler 2025', 
-                    'img' => 'https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&q=80&w=800'
+                    'img' => asset('img/haji-reguler.jpg')
                 ],
                 [
                     'id' => 102,
@@ -51,19 +51,9 @@
                     'route' => 'Makkah Madinah Arafah Muzdalifah Mina', 
                     'price' => 'Rp 255.000.000', 
                     'tag' => '2025', 
-                    'img' => 'https://images.unsplash.com/photo-1591604129939-f1efa4d9f7fa?auto=format&fit=crop&q=80&w=800'
+                    'img' => asset('img/haji-mabrur.jpg')
                 ],
-                [
-                    'id' => 103,
-                    'title' => 'Blessed Hajj Experience', 
-                    'desc' => 'Perjalanan istimewa untuk menunaikan ibadah Haji dengan fasilitas dan pelayanan sesuai pilihan program, agar setiap rangkaian ibadah terasa lebih nyaman.', 
-                    'days' => '± 25 Hari', 
-                    'filter_key' => 'plus',
-                    'route' => 'Makkah Madinah Arafah, Muzdalifah Mina', 
-                    'price' => 'Rp 310.000.000', 
-                    'tag' => '2025', 
-                    'img' => 'https://images.unsplash.com/photo-1565552420067-1d6741972754?auto=format&fit=crop&q=80&w=800'
-                ],
+                
                 [
                     'id' => 104,
                     'title' => 'Exclusive Hajj Journey', 
@@ -73,19 +63,9 @@
                     'route' => 'Makkah Madinah Arafah, Muzdalifah Mina', 
                     'price' => 'Rp 365.000.000', 
                     'tag' => '2027', 
-                    'img' => 'https://images.unsplash.com/photo-1541432901042-2d8bd64b4a9b?auto=format&fit=crop&q=80&w=800'
+                    'img' => asset('img/haji-mabrur.jpg')
                 ],
-                [
-                    'id' => 105,
-                    'title' => 'Royal Hajj Journey', 
-                    'desc' => 'Rasakan perjalanan ibadah yang berkesan dengan pendampingan dan layanan sesuai program, untuk menemani langkah menuju Baitullah.', 
-                    'days' => '± 30 Hari', 
-                    'filter_key' => 'furoda',
-                    'route' => 'Makkah Madinah Arafah, Muzdalifah Mina', 
-                    'price' => 'Rp 450.000.000', 
-                    'tag' => '2027', 
-                    'img' => 'https://images.unsplash.com/photo-1591604129939-f1efa4d9f7fa?auto=format&fit=crop&q=80&w=800'
-                ],
+                
             ];
 
             $filteredHaji = collect($hajiList)->filter(function($item) use ($activeFilter) {

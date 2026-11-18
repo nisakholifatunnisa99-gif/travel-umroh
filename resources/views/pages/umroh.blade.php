@@ -9,7 +9,7 @@
     
     <!-- BANNER HERO HEADER -->
     <div class="relative w-full bg-[#0B3B24] overflow-hidden shadow-md pt-36 pb-16 px-4 sm:px-6 lg:px-8 mb-12">
-        <div class="absolute inset-0 opacity-20 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1591604129939-f1efa4d9f7fa?auto=format&fit=crop&q=80&w=1200')"></div>
+        <div class="absolute inset-0 opacity-20 bg-cover bg-center" style="background-image: url('{{ asset('img/Hero.png') }}')"></div>
         
         <div class="relative z-10 max-w-7xl mx-auto space-y-3">
             <p class="text-xs text-amber-300 font-serif tracking-widest uppercase">
@@ -42,7 +42,7 @@
                     'hotel' => 'Hotel Bintang 5', 
                     'price' => 'Rp 34.500.000', 
                     'tag' => 'Terlaris', 
-                    'img' => 'https://images.unsplash.com/photo-1591604129939-f1efa4d9f7fa?auto=format&fit=crop&q=80&w=800'
+                    'img' => asset('img/pilihan-paket.jpg')
                 ],
                 [
                     'id' => 2,
@@ -54,7 +54,7 @@
                     'hotel' => 'Hotel Bintang 4', 
                     'price' => 'Rp 30.000.000', 
                     'tag' => 'Reguler', 
-                    'img' => 'https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&q=80&w=800'
+                    'img' => asset('img/pilihan-paket.jpg')
                 ],
                 [
                     'id' => 3,
@@ -66,7 +66,7 @@
                     'hotel' => 'Hotel Bintang 5', 
                     'price' => 'Rp 35.000.000', 
                     'tag' => 'Favorit', 
-                    'img' => 'https://images.unsplash.com/photo-1565552420067-1d6741972754?auto=format&fit=crop&q=80&w=800'
+                    'img' => asset('img/destinasi.jpg')
                 ],
                 [
                     'id' => 4,
@@ -78,7 +78,7 @@
                     'hotel' => 'Hotel Bintang 4', 
                     'price' => 'Rp 40.000.000', 
                     'tag' => '', 
-                    'img' => 'https://images.unsplash.com/photo-1541432901042-2d8bd64b4a9b?auto=format&fit=crop&q=80&w=800'
+                    'img' => asset('img/destinasi.jpg')
                 ],
                 [
                     'id' => 5,
@@ -90,7 +90,7 @@
                     'hotel' => 'Hotel Bintang 4', 
                     'price' => 'Rp 45.000.000', 
                     'tag' => '', 
-                    'img' => 'https://images.unsplash.com/photo-1591604129939-f1efa4d9f7fa?auto=format&fit=crop&q=80&w=800'
+                    'img' => asset('img/haji.jpg')
                 ],
                 [
                     'id' => 6,
@@ -102,32 +102,9 @@
                     'hotel' => 'Hotel Bintang 4', 
                     'price' => 'Rp 48.000.000', 
                     'tag' => '', 
-                    'img' => 'https://images.unsplash.com/photo-1565552420067-1d6741972754?auto=format&fit=crop&q=80&w=800'
+                    'img' => asset('img/haji.jpg')
                 ],
-                [
-                    'id' => 7,
-                    'title' => 'Faith & Discovery', 
-                    'desc' => 'Perjalanan ibadah Umroh yang dilengkapi wisata ke Turki. Kunjungi keindahan Istanbul dan Hagia Sophia.', 
-                    'days' => '12 Hari', 
-                    'filter_key' => 'umroh-plus',
-                    'route' => 'Makkah & Madinah', 
-                    'hotel' => 'Hotel Bintang 4', 
-                    'price' => 'Rp 50.000.000', 
-                    'tag' => 'Umroh Plus', 
-                    'img' => 'https://images.unsplash.com/photo-1541432901042-2d8bd64b4a9b?auto=format&fit=crop&q=80&w=800'
-                ],
-                [
-                    'id' => 8,
-                    'title' => 'Explore & Worship', 
-                    'desc' => 'Padukan perjalanan ibadah di Tanah Suci dengan pengalaman menjelajahi Dubai dan gurun pasir.', 
-                    'days' => '12 Hari', 
-                    'filter_key' => 'umroh-plus',
-                    'route' => 'Makkah & Madinah', 
-                    'hotel' => 'Hotel Bintang 5', 
-                    'price' => 'Rp 56.000.000', 
-                    'tag' => 'Umroh Plus', 
-                    'img' => 'https://images.unsplash.com/photo-1591604129939-f1efa4d9f7fa?auto=format&fit=crop&q=80&w=800'
-                ],
+                
             ];
 
             // Filter data jika tombol kategori dipilih

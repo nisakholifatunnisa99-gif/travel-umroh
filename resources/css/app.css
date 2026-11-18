@@ -5,6 +5,9 @@
   --color-gold-500: #D4AF37;
   --color-gold-600: #AA8C2C;
 }
+@theme {
+  --font-abhaya: "Abhaya Libre", serif;
+}
 @keyframes marquee {
   0% { transform: translateX(0%); }
   100% { transform: translateX(-50%); }
