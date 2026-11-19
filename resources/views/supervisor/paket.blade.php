@@ -24,10 +24,11 @@
             <p class="text-xs text-stone-600 font-sans">Kelola daftar paket umroh dan haji yang tersedia untuk jamaah.</p>
         </div>
         <!-- Tombol Pemicu Pop-up -->
-        <button @click="openModal = true" class="bg-[#0B3B24] hover:bg-emerald-900 text-white font-bold text-xs py-3 px-6 rounded-full transition cursor-pointer font-sans shadow-md flex items-center gap-2">
-            <span>Tambah Paket</span>
-            <span class="w-4 h-4 rounded border border-white/60 flex items-center justify-center text-[10px]">+</span>
-        </button>
+       <!-- Tombol untuk Membuka Modal (Contoh diletakkan di halaman Kelola Paket) -->
+<button onclick="openModalTambahPaket()" class="bg-[#0B3B24] hover:bg-emerald-900 text-white font-[700] text-xs px-5 py-3 rounded-2xl flex items-center gap-2 transition cursor-pointer shadow-md">
+    <span>+ Tambah Paket</span>
+</button>
+
     </div>
 
     <!-- Grid Kartu Paket -->
@@ -172,143 +173,378 @@
         </div>
     </div>
 
-    <!-- ===================================================================== -->
-    <!-- POP-UP MODAL: TAMBAH PAKET BARU (DIREVISI POSISI & SCROLLBARNYA)      -->
-    <!-- ===================================================================== -->
-    <div x-show="openModal" 
-         style="display: none;" 
-         class="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-xs p-4">
+    
+<!-- Modal Overlay (Background Gelap Transparan) -->
+<div id="modalTambahPaket" class="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-xs hidden p-4">
+    
+    <!-- Kontainer Modal Utama (overflow-hidden agar scrollbar tidak keluar dari sudut rounded-[32px]) -->
+    <div class="bg-white rounded-[32px] w-full max-w-xl shadow-2xl border border-stone-200 relative max-h-[90vh] flex flex-col overflow-hidden">
         
-        <!-- Kontainer Modal Utama dengan Sudut Membulat 32px & Overflow Hidden -->
-        <div @click.away="openModal = false" 
-             x-transition:enter="transition ease-out duration-200"
-             x-transition:enter-start="opacity-0 scale-95"
-             x-transition:enter-end="opacity-100 scale-100"
-             class="bg-[#FAF8F5] rounded-[32px] w-full max-w-xl max-h-[85vh] flex flex-col shadow-2xl border border-stone-200 relative overflow-hidden my-auto">
+        <!-- Tombol Close (X) di Kanan Atas -->
+        <button onclick="closeModalTambahPaket()" class="absolute top-6 right-6 w-9 h-9 rounded-full bg-stone-100 hover:bg-stone-200 text-stone-600 flex items-center justify-center font-bold text-sm transition cursor-pointer z-20">
+            ✕
+        </button>
 
-            <!-- 1. Header Modal (Tetap di atas, tidak ikut scroll) -->
-            <div class="px-6 sm:px-8 pt-6 pb-4 bg-[#FAF8F5] border-b border-stone-200 flex justify-between items-center shrink-0">
-                <div>
-                    <h2 class="text-2xl sm:text-3xl font-bold text-stone-900 font-serif">Tambah Paket Baru</h2>
-                    <p class="text-xs text-stone-600 mt-0.5">Isi detail paket perjalanan Haji atau Umrah</p>
-                </div>
-                <button @click="openModal = false" class="w-8 h-8 rounded-full bg-stone-200 hover:bg-stone-300 text-stone-700 flex items-center justify-center font-bold text-sm transition cursor-pointer">
-                    &times;
-                </button>
+        <!-- BAGIAN 1: HEADER & STEPPER (Fixed di atas, tidak ikut ter-scroll) -->
+        <div class="p-6 sm:p-8 pb-4 space-y-6 shrink-0 border-b border-stone-100">
+            <div class="space-y-1">
+                <h2 class="text-xl sm:text-2xl font-[800] font-['Abhaya_Libre'] text-stone-900">Tambah Paket</h2>
+                <p class="text-xs text-stone-500 font-sans">Lengkapi informasi paket haji atau umroh di bawah ini.</p>
             </div>
 
-            <!-- 2. Area Form yang bisa di-scroll di bagian tengah -->
-            <form action="#" method="POST" @submit.prevent="alert('Paket berhasil ditambahkan!'); openModal = false;" class="p-6 sm:p-8 space-y-4 font-serif overflow-y-auto flex-1">
+            <!-- Stepper Indicator (1 - 2 - 3) -->
+            <div class="flex items-center justify-center relative px-8">
+                <!-- Garis Penghubung Background -->
+                <div class="absolute left-16 right-16 top-5 h-0.5 bg-stone-200 z-0"></div>
+
+                <!-- Step 1 -->
+                <div class="flex flex-col items-center relative z-10 cursor-pointer" onclick="switchStep(1)">
+                    <div id="step-indicator-1" class="w-10 h-10 rounded-full bg-[#0B3B24] text-white font-[800] text-sm flex items-center justify-center shadow-xs transition">1</div>
+                    <span class="text-[11px] font-[700] text-stone-800 mt-1 font-sans">Informasi Paket</span>
+                </div>
+
+                <div class="flex-1"></div>
+
+                <!-- Step 2 -->
+                <div class="flex flex-col items-center relative z-10 cursor-pointer" onclick="switchStep(2)">
+                    <div id="step-indicator-2" class="w-10 h-10 rounded-full bg-stone-200 text-stone-600 font-[800] text-sm flex items-center justify-center shadow-xs transition">2</div>
+                    <span class="text-[11px] font-[700] text-stone-400 mt-1 font-sans" id="label-step-2">Jadwal</span>
+                </div>
+
+                <div class="flex-1"></div>
+
+                <!-- Step 3 -->
+                <div class="flex flex-col items-center relative z-10 cursor-pointer" onclick="switchStep(3)">
+                    <div id="step-indicator-3" class="w-10 h-10 rounded-full bg-stone-200 text-stone-600 font-[800] text-sm flex items-center justify-center shadow-xs transition">3</div>
+                    <span class="text-[11px] font-[700] text-stone-400 mt-1 font-sans" id="label-step-3">Hotel</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- BAGIAN 2: AREA KONTEN FORM (Hanya bagian ini yang memiliki scrollbar di dalam modal) -->
+        <div class="p-6 sm:p-8 pt-6 overflow-y-auto flex-1">
+            <form action="#" method="POST" class="space-y-6 text-xs font-sans">
                 @csrf
 
-                <!-- Kategori (Umrah / Haji) -->
-                <div class="space-y-1.5">
-                    <label class="block text-sm font-bold text-stone-800">Kategori</label>
-                    <div class="grid grid-cols-2 gap-3">
-                        <!-- Pilihan Umrah -->
-                        <div @click="kategori = 'Umrah'" 
-                             :class="kategori === 'Umrah' ? 'bg-[#A7D7A9] border-[#0B3B24]' : 'bg-white border-stone-300 hover:bg-stone-50'"
-                             class="border-2 rounded-2xl p-3.5 cursor-pointer transition flex items-center justify-between">
-                            <div>
-                                <span class="block text-base font-bold text-[#0B3B24]">Umrah</span>
-                                <span class="block text-[11px] text-stone-700 font-sans">Reguler/Plus/Ramadhan</span>
-                            </div>
-                            <div x-show="kategori === 'Umrah'" class="w-6 h-6 rounded-full bg-[#0B3B24] text-white flex items-center justify-center text-xs">
-                                ✓
-                            </div>
-                        </div>
+                <!-- ================= TAHAP 1: INFORMASI PAKET ================= -->
+                <div id="form-step-1" class="space-y-4">
+                    <!-- Nama Paket -->
+                    <div class="space-y-1.5">
+                        <label class="font-[700] text-stone-800 block">Nama Paket</label>
+                        <input type="text" placeholder="" class="w-full px-4 py-3 rounded-2xl bg-white border border-stone-200 text-stone-800 font-medium shadow-[0_4px_0_0_#DFD7C6] focus:outline-none focus:border-stone-400 transition">
+                        <span class="text-[10px] text-rose-600 font-medium">Nama paket minimal 5 karakter</span>
+                    </div>
 
-                        <!-- Pilihan Haji -->
-                        <div @click="kategori = 'Haji'" 
-                             :class="kategori === 'Haji' ? 'bg-[#A7D7A9] border-[#0B3B24]' : 'bg-white border-stone-300 hover:bg-stone-50'"
-                             class="border-2 rounded-2xl p-3.5 cursor-pointer transition flex items-center justify-between">
-                            <div>
-                                <span class="block text-base font-bold text-[#0B3B24]">Haji</span>
-                                <span class="block text-[11px] text-stone-700 font-sans">Haji Khusus/Furoda</span>
-                            </div>
-                            <div x-show="kategori === 'Haji'" class="w-6 h-6 rounded-full bg-[#0B3B24] text-white flex items-center justify-center text-xs">
-                                ✓
-                            </div>
+                    <!-- Kategori Paket -->
+                    <div class="space-y-1.5">
+                        <label class="font-[700] text-stone-800 block">Kategori Paket</label>
+                        <div class="grid grid-cols-2 gap-3">
+                            <label class="flex items-center justify-between px-4 py-3 rounded-2xl bg-[#C8E6C9]/40 border border-emerald-800 cursor-pointer">
+                                <span class="font-bold text-stone-900">Umroh</span>
+                                <input type="radio" name="kategori" checked class="accent-[#0B3B24]">
+                            </label>
+                            <label class="flex items-center justify-between px-4 py-3 rounded-2xl bg-white border border-stone-200 cursor-pointer hover:bg-stone-50">
+                                <span class="font-medium text-stone-700">Haji</span>
+                                <input type="radio" name="kategori" class="accent-[#0B3B24]">
+                            </label>
                         </div>
                     </div>
-                    <input type="hidden" name="kategori" :value="kategori">
-                </div>
 
-                <!-- Nama Paket -->
-                <div class="space-y-1">
-                    <label class="block text-sm font-bold text-stone-800">Nama Paket</label>
-                    <input type="text" name="nama_paket" required minlength="5" placeholder="Contoh: Umrah Plus Mei 12 Hari" 
-                           class="w-full px-4 py-2.5 rounded-xl bg-white border-2 border-stone-300 text-sm font-sans focus:outline-none focus:border-[#0B3B24]">
-                    <span class="block text-[11px] text-red-600 font-medium">Nama paket minimal 5 karakter</span>
-                </div>
-
-                <!-- Harga Paket & Durasi -->
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div class="space-y-1">
-                        <label class="block text-sm font-bold text-stone-800">Harga Paket(Rp)</label>
-                        <input type="number" name="harga" value="35000000" min="1000000" required 
-                               class="w-full px-4 py-2.5 rounded-xl bg-white border-2 border-stone-300 text-sm font-sans focus:outline-none focus:border-[#0B3B24]">
-                        <span class="block text-[11px] text-red-600 font-medium">Harga minimal Rp 1.000.000</span>
-                    </div>
-
-                    <div class="space-y-1">
-                        <label class="block text-sm font-bold text-stone-800">Durasi(hari)</label>
-                        <input type="number" name="durasi" value="9" min="1" required 
-                               class="w-full px-4 py-2.5 rounded-xl bg-white border-2 border-stone-300 text-sm font-sans focus:outline-none focus:border-[#0B3B24]">
-                        <span class="block text-[11px] text-red-600 font-medium">Durasi minimal 1 hari</span>
-                    </div>
-                </div>
-
-                <!-- Fasilitas (Multi-select Pills) -->
-                <div class="space-y-1.5">
-                    <label class="block text-sm font-bold text-stone-800">Fasilitas</label>
-                    <div class="flex flex-wrap gap-2">
-                        <template x-for="fasilitas in ['Tiket Pesawat', 'Akomodasi Hotel', 'Perlengkapan Ibadah', 'Konsumsi', 'Pendamping', 'Asuransi', 'Transportasi', 'Air Zamzam']">
-                            <button type="button" 
-                                    @click="toggleFasilitas(fasilitas)"
-                                    :class="selectedFasilitas.includes(fasilitas) ? 'bg-[#0B3B24] text-white border-[#0B3B24]' : 'bg-white text-stone-800 border-stone-300 hover:bg-stone-50'"
-                                    class="px-3.5 py-1.5 rounded-xl border-2 text-xs font-bold transition cursor-pointer"
-                                    x-text="fasilitas">
-                            </button>
-                        </template>
-                    </div>
-                    <span class="block text-[11px] text-red-600 font-medium">Pilih minimal 1 pilihan</span>
-                </div>
-
-                <!-- Deskripsi Paket -->
-                <div class="space-y-1">
-                    <label class="block text-sm font-bold text-stone-800">Deskripsi Paket</label>
-                    <textarea name="deskripsi" rows="2" minlength="20" required placeholder="Tuliskan deskripsi lengkap perjalanan paket..."
-                              class="w-full px-4 py-2.5 rounded-xl bg-white border-2 border-stone-300 text-sm font-sans focus:outline-none focus:border-[#0B3B24]"></textarea>
-                    <span class="block text-[11px] text-red-600 font-medium">Minimal 20 Karakter</span>
-                </div>
-
-                <!-- Status Paket -->
-                <div class="space-y-1">
-                    <label class="block text-sm font-bold text-stone-800">Status Paket</label>
-                    <div class="relative w-full sm:w-2/3">
-                        <select name="status" class="w-full appearance-none px-4 py-2.5 rounded-xl bg-white border-2 border-stone-300 text-sm font-serif focus:outline-none focus:border-[#0B3B24] pr-10">
-                            <option value="aktif">Aktif -- dapat dipesan</option>
-                            <option value="draft">Draft -- belum dipublikasi</option>
-                            <option value="nonaktif">Nonaktif -- kuota penuh / selesai</option>
+                    <!-- Jenis Layanan -->
+                    <div class="space-y-1.5">
+                        <label class="font-[700] text-stone-800 block">Jenis Layanan</label>
+                        <select class="w-full px-4 py-3 rounded-2xl bg-white border border-stone-200 text-stone-800 font-medium shadow-[0_4px_0_0_#DFD7C6] focus:outline-none focus:border-stone-400 transition cursor-pointer">
+                            <option>Haji Reguler/Plus/VIP / Umrah 12/9/15 hari</option>
+                            <option>Umrah Reguler</option>
+                            <option>Umrah Plus Turkey</option>
                         </select>
-                        <span class="absolute right-3.5 top-3 text-stone-600 pointer-events-none text-xs">▼</span>
+                    </div>
+
+                    <!-- Deskripsi Paket -->
+                    <div class="space-y-1.5">
+                        <label class="font-[700] text-stone-800 block">Deskripsi Paket</label>
+                        <textarea rows="3" class="w-full px-4 py-3 rounded-2xl bg-white border border-stone-200 text-stone-800 font-medium shadow-[0_4px_0_0_#DFD7C6] focus:outline-none focus:border-stone-400 transition resize-none"></textarea>
+                    </div>
+
+                    <!-- Status Paket -->
+                    <div class="space-y-1.5">
+                        <label class="font-[700] text-stone-800 block">Status Paket</label>
+                        <div class="grid grid-cols-2 gap-3">
+                            <label class="flex items-center justify-between px-4 py-3 rounded-2xl bg-[#C8E6C9]/40 border border-emerald-800 cursor-pointer">
+                                <span class="font-bold text-stone-900">Aktif</span>
+                                <input type="radio" name="status" checked class="accent-[#0B3B24]">
+                            </label>
+                            <label class="flex items-center justify-between px-4 py-3 rounded-2xl bg-white border border-stone-200 cursor-pointer hover:bg-stone-50">
+                                <span class="font-medium text-stone-700">Non Aktif</span>
+                                <input type="radio" name="status" class="accent-[#0B3B24]">
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Harga Paket -->
+                    <div class="space-y-1.5">
+                        <label class="font-[700] text-stone-800 block">Harga Paket</label>
+                        <select class="w-full px-4 py-3 rounded-2xl bg-white border border-stone-200 text-stone-800 font-medium shadow-[0_4px_0_0_#DFD7C6] focus:outline-none focus:border-stone-400 transition cursor-pointer">
+                            <option>30.000.000</option>
+                            <option>35.000.000</option>
+                            <option>40.000.000</option>
+                        </select>
+                    </div>
+
+                    <!-- Fasilitas Paket -->
+                    <div class="space-y-2">
+                        <label class="font-[700] text-stone-800 block">Fasilitas Paket</label>
+                        <div class="flex items-center gap-2">
+                            <input type="text" value="Transportasi ...." class="flex-1 px-4 py-2.5 rounded-2xl bg-white border border-stone-200 text-stone-800 shadow-[0_4px_0_0_#DFD7C6]">
+                            <button type="button" class="w-10 h-10 rounded-2xl bg-[#0B3B24] text-white font-bold flex items-center justify-center shadow-xs cursor-pointer">+</button>
+                        </div>
+                        <!-- Badge Fasilitas -->
+                        <div class="flex flex-wrap gap-2 pt-1">
+                            <span class="inline-flex items-center gap-2 bg-[#C8E6C9]/60 border border-emerald-800 text-stone-900 px-3 py-1.5 rounded-full font-bold text-[11px]">
+                                Pendamping <button type="button" class="text-stone-500 hover:text-stone-800">×</button>
+                            </span>
+                            <span class="inline-flex items-center gap-2 bg-[#C8E6C9]/60 border border-emerald-800 text-stone-900 px-3 py-1.5 rounded-full font-bold text-[11px]">
+                                Konsumsi <button type="button" class="text-stone-500 hover:text-stone-800">×</button>
+                            </span>
+                            <span class="inline-flex items-center gap-2 bg-[#C8E6C9]/60 border border-emerald-800 text-stone-900 px-3 py-1.5 rounded-full font-bold text-[11px]">
+                                Akomodasi Hotel <button type="button" class="text-stone-500 hover:text-stone-800">×</button>
+                            </span>
+                            <span class="inline-flex items-center gap-2 bg-[#C8E6C9]/60 border border-emerald-800 text-stone-900 px-3 py-1.5 rounded-full font-bold text-[11px]">
+                                Asuransi <button type="button" class="text-stone-500 hover:text-stone-800">×</button>
+                            </span>
+                            <span class="inline-flex items-center gap-2 bg-[#C8E6C9]/60 border border-emerald-800 text-stone-900 px-3 py-1.5 rounded-full font-bold text-[11px]">
+                                Tiket Pesawat <button type="button" class="text-stone-500 hover:text-stone-800">×</button>
+                            </span>
+                            <span class="inline-flex items-center gap-2 bg-[#C8E6C9]/60 border border-emerald-800 text-stone-900 px-3 py-1.5 rounded-full font-bold text-[11px]">
+                                Perlengkapan Ibadah <button type="button" class="text-stone-500 hover:text-stone-800">×</button>
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- Gambar Utama -->
+                    <div class="space-y-1.5">
+                        <label class="font-[700] text-stone-800 block">Gambar Utama</label>
+                        <div class="border-2 border-dashed border-stone-300 rounded-2xl p-6 text-center bg-stone-50 hover:bg-stone-100 transition cursor-pointer">
+                            <div class="flex flex-col items-center justify-center space-y-2 text-stone-500">
+                                <span class="material-symbols-outlined">cloud_upload</span>
+                                <span class="text-[11px] font-bold">Pilih atau seret foto ke sini</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tombol Aksi Step 1 -->
+                    <div class="flex items-center justify-between pt-4 border-t border-stone-100">
+                        <button type="button" class="px-5 py-2.5 rounded-2xl bg-rose-700 text-white font-[700] hover:bg-rose-800 transition cursor-pointer shadow-[0_4px_0_0_#7f1d1d]">
+                            Hapus Gambar
+                        </button>
+                        <div class="flex items-center gap-2">
+                            <button type="button" class="px-5 py-2.5 rounded-2xl bg-[#0B3B24] text-white font-[700] hover:bg-emerald-900 transition cursor-pointer shadow-[0_4px_0_0_#051d12]">
+                                Simpan Gambar
+                            </button>
+                            <button type="button" onclick="switchStep(2)" class="px-5 py-2.5 rounded-2xl bg-[#0B3B24] text-white font-[700] hover:bg-emerald-900 transition cursor-pointer shadow-[0_4px_0_0_#051d12] flex items-center gap-1">
+                                Selanjutnya →
+                            </button>
+                        </div>
                     </div>
                 </div>
 
-                <!-- 3. Tombol Aksi (Batal & Simpan di bagian bawah dalam form yang bisa di-scroll) -->
-                <div class="flex items-center justify-end gap-3 pt-4 border-t border-stone-200 mt-6">
-                    <button type="button" @click="openModal = false" 
-                            class="px-6 py-2.5 rounded-xl bg-white border-2 border-stone-400 text-stone-900 font-bold text-xs hover:bg-stone-100 transition cursor-pointer">
-                        Batal
-                    </button>
-                    <button type="submit" 
-                            class="px-7 py-2.5 rounded-xl bg-[#0B3B24] hover:bg-emerald-900 text-white border-2 border-[#0B3B24] font-bold text-xs transition cursor-pointer shadow-md">
-                        Simpan
-                    </button>
+
+                <!-- ================= TAHAP 2: JADWAL ================= -->
+                <div id="form-step-2" class="space-y-4 hidden">
+                    <h3 class="text-sm font-[800] text-stone-900 font-['Abhaya_Libre']">Daftar Jadwal</h3>
+                    
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div class="space-y-1.5">
+                            <label class="font-[700] text-stone-800 block">Tanggal Mulai</label>
+                            <input type="date" value="2026-11-17" class="w-full px-4 py-3 rounded-2xl bg-white border border-stone-200 text-stone-800 font-medium shadow-[0_4px_0_0_#DFD7C6]">
+                        </div>
+                        <div class="space-y-1.5">
+                            <label class="font-[700] text-stone-800 block">Tanggal Pulang</label>
+                            <input type="date" value="2026-12-17" class="w-full px-4 py-3 rounded-2xl bg-white border border-stone-200 text-stone-800 font-medium shadow-[0_4px_0_0_#DFD7C6]">
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div class="space-y-1.5">
+                            <label class="font-[700] text-stone-800 block">Maskapai</label>
+                            <select class="w-full px-4 py-3 rounded-2xl bg-white border border-stone-200 text-stone-800 font-medium shadow-[0_4px_0_0_#DFD7C6]">
+                                <option>Lion Air</option>
+                                <option>Saudia Airlines</option>
+                                <option>Garuda Indonesia</option>
+                            </select>
+                        </div>
+                        <div class="space-y-1.5">
+                            <label class="font-[700] text-stone-800 block">Nomor Penerbangan</label>
+                            <input type="text" value="LA 123" class="w-full px-4 py-3 rounded-2xl bg-white border border-stone-200 text-stone-800 font-medium shadow-[0_4px_0_0_#DFD7C6]">
+                        </div>
+                    </div>
+
+                    <div class="space-y-1.5">
+                        <label class="font-[700] text-stone-800 block">Kuota</label>
+                        <input type="number" value="20" class="w-full px-4 py-3 rounded-2xl bg-white border border-stone-200 text-stone-800 font-medium shadow-[0_4px_0_0_#DFD7C6]">
+                    </div>
+
+                    <div class="flex justify-end">
+                        <button type="button" class="px-5 py-2 rounded-xl bg-[#0B3B24] text-white font-bold text-[11px] shadow-xs">Simpan Gambar</button>
+                    </div>
+
+                    <!-- Tabel Ringkasan Jadwal -->
+<div class="overflow-x-auto border border-stone-200 rounded-2xl">
+    <table class="w-full text-left text-[11px]" id="tabelJadwal">
+        <thead class="bg-stone-50 border-b border-stone-200 text-stone-500 font-bold">
+            <tr>
+                <th class="py-2.5 px-3">Tanggal Mulai</th>
+                <th class="py-2.5 px-3">Tanggal Pulang</th>
+                <th class="py-2.5 px-3">Maskapai</th>
+                <th class="py-2.5 px-3">No. Penerbangan</th>
+                <th class="py-2.5 px-3">Kuota</th>
+                <th class="py-2.5 px-3 text-right">Aksi</th>
+            </tr>
+        </thead>
+        <tbody class="divide-y divide-stone-100 font-medium text-stone-800">
+            <tr id="row-1">
+                <td class="py-2 px-3 t-mulai">17/11/2026</td>
+                <td class="py-2 px-3 t-pulang">17/12/2026</td>
+                <td class="py-2 px-3 t-maskapai">Lion Air</td>
+                <td class="py-2 px-3 t-penerbangan">LA 123</td>
+                <td class="py-2 px-3 t-kuota">20</td>
+                <td class="py-2 px-3 text-right space-x-1">
+                    <button type="button" onclick="editJadwal('row-1')" class="p-1 hover:bg-stone-100 rounded transition cursor-pointer" title="Edit"><span class="material-symbols-outlined">edit</span></button>
+                    <button type="button" onclick="hapusJadwal('row-1')" class="p-1 hover:bg-rose-50 rounded transition cursor-pointer" title="Hapus"><span class="material-symbols-outlined">delete</span></button>
+                </td>
+            </tr>
+            <tr id="row-2">
+                <td class="py-2 px-3 t-mulai">17/11/2026</td>
+                <td class="py-2 px-3 t-pulang">17/12/2026</td>
+                <td class="py-2 px-3 t-maskapai">Lion Air</td>
+                <td class="py-2 px-3 t-penerbangan">LA 254</td>
+                <td class="py-2 px-3 t-kuota">20</td>
+                <td class="py-2 px-3 text-right space-x-1">
+                    <button type="button" onclick="editJadwal('row-1')" class="p-1 hover:bg-stone-100 rounded transition cursor-pointer" title="Edit"><span class="material-symbols-outlined">edit</span></button>
+                    <button type="button" onclick="hapusJadwal('row-1')" class="p-1 hover:bg-rose-50 rounded transition cursor-pointer" title="Hapus"><span class="material-symbols-outlined">delete</span></button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+                    <!-- Tombol Aksi Step 2 -->
+                    <div class="flex items-center justify-between pt-4 border-t border-stone-100">
+                        <button type="button" onclick="switchStep(1)" class="px-5 py-2.5 rounded-2xl border border-stone-300 bg-stone-100 text-stone-700 font-[700] hover:bg-stone-200 transition cursor-pointer">
+                            ← Sebelumnya
+                        </button>
+                        <button type="button" onclick="switchStep(3)" class="px-5 py-2.5 rounded-2xl bg-[#0B3B24] text-white font-[700] hover:bg-emerald-900 transition cursor-pointer shadow-[0_4px_0_0_#051d12] flex items-center gap-1">
+                            Selanjutnya →
+                        </button>
+                    </div>
+                </div>
+
+
+                <!-- ================= TAHAP 3: HOTEL & HARGA ================= -->
+                <div id="form-step-3" class="space-y-4 hidden">
+                    <h3 class="text-sm font-[800] text-stone-900 font-['Abhaya_Libre']">Daftar Jadwal & Hotel</h3>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div class="space-y-1.5">
+                            <label class="font-[700] text-stone-800 block">Hotel Madinah</label>
+                            <select class="w-full px-4 py-3 rounded-2xl bg-white border border-stone-200 text-stone-800 font-medium shadow-[0_4px_0_0_#DFD7C6]">
+                                <option>Crowne Plaza</option>
+                                <option>Ritz Madinah</option>
+                            </select>
+                            <div class="h-24 bg-stone-100 rounded-2xl overflow-hidden border border-stone-200 mt-2">
+                                <div class="w-full h-full bg-stone-300 flex items-center justify-center text-xs text-stone-600 font-bold">Foto Hotel Madinah</div>
+                            </div>
+                        </div>
+
+                        <div class="space-y-1.5">
+                            <label class="font-[700] text-stone-800 block">Hotel Makkah</label>
+                            <select class="w-full px-4 py-3 rounded-2xl bg-white border border-stone-200 text-stone-800 font-medium shadow-[0_4px_0_0_#DFD7C6]">
+                                <option>Sherraton</option>
+                                <option>Fairmont Makkah</option>
+                            </select>
+                            <div class="h-24 bg-stone-100 rounded-2xl overflow-hidden border border-stone-200 mt-2">
+                                <div class="w-full h-full bg-stone-300 flex items-center justify-center text-xs text-stone-600 font-bold">Foto Hotel Makkah</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Input Harga Quad, Triple, Double -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+                        <div class="space-y-3">
+                            <div class="space-y-1">
+                                <label class="font-[700] text-stone-800 block">Harga Quad</label>
+                                <input type="text" value="25.000.000" class="w-full px-4 py-2.5 rounded-2xl bg-white border border-stone-200 text-stone-800 font-medium shadow-[0_4px_0_0_#DFD7C6]">
+                            </div>
+                            <div class="space-y-1">
+                                <label class="font-[700] text-stone-800 block">Harga Triple</label>
+                                <input type="text" value="30.000.000" class="w-full px-4 py-3 rounded-2xl bg-white border border-stone-200 text-stone-800 font-medium shadow-[0_4px_0_0_#DFD7C6]">
+                            </div>
+                            <div class="space-y-1">
+                                <label class="font-[700] text-stone-800 block">Harga Double</label>
+                                <input type="text" value="35.000.000" class="w-full px-4 py-3 rounded-2xl bg-white border border-stone-200 text-stone-800 font-medium shadow-[0_4px_0_0_#DFD7C6]">
+                            </div>
+                        </div>
+
+                        <div class="space-y-3">
+                            <div class="space-y-1">
+                                <label class="font-[700] text-stone-800 block">Harga Quad</label>
+                                <input type="text" value="30.000.000" class="w-full px-4 py-2.5 rounded-2xl bg-white border border-stone-200 text-stone-800 font-medium shadow-[0_4px_0_0_#DFD7C6]">
+                            </div>
+                            <div class="space-y-1">
+                                <label class="font-[700] text-stone-800 block">Harga Triple</label>
+                                <input type="text" value="35.000.000" class="w-full px-4 py-3 rounded-2xl bg-white border border-stone-200 text-stone-800 font-medium shadow-[0_4px_0_0_#DFD7C6]">
+                            </div>
+                            <div class="space-y-1">
+                                <label class="font-[700] text-stone-800 block">Harga Double</label>
+                                <input type="text" value="40.000.000" class="w-full px-4 py-3 rounded-2xl bg-white border border-stone-200 text-stone-800 font-medium shadow-[0_4px_0_0_#DFD7C6]">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tombol Aksi Step 3 -->
+                    <div class="flex items-center justify-between pt-4 border-t border-stone-100">
+                        <button type="button" onclick="switchStep(2)" class="px-5 py-2.5 rounded-2xl border border-stone-300 bg-stone-100 text-stone-700 font-[700] hover:bg-stone-200 transition cursor-pointer">
+                            ← Sebelumnya
+                        </button>
+                        <button type="submit" class="px-7 py-3 rounded-2xl bg-[#0B3B24] hover:bg-emerald-900 text-white font-[700] transition cursor-pointer shadow-[0_4px_0_0_#051d12]">
+                            Simpan 
+                        </button>
+                    </div>
                 </div>
 
             </form>
         </div>
+
     </div>
+</div>
+
+<!-- Script Interaktif untuk Membuka, Menutup, dan Berpindah Tahap (Step) -->
+<script>
+    function openModalTambahPaket() {
+        document.getElementById('modalTambahPaket').classList.remove('hidden');
+    }
+
+    function closeModalTambahPaket() {
+        document.getElementById('modalTambahPaket').classList.add('hidden');
+    }
+
+    function switchStep(step) {
+        // Sembunyikan semua form step
+        document.getElementById('form-step-1').classList.add('hidden');
+        document.getElementById('form-step-2').classList.add('hidden');
+        document.getElementById('form-step-3').classList.add('hidden');
+
+        // Reset semua indikator
+        ['1', '2', '3'].forEach(i => {
+            let ind = document.getElementById('step-indicator-' + i);
+            ind.className = 'w-10 h-10 rounded-full bg-stone-200 text-stone-600 font-[800] text-sm flex items-center justify-center shadow-xs transition';
+        });
+
+        // Tampilkan step yang dipilih dan aktifkan indikatornya
+        document.getElementById('form-step-' + step).classList.remove('hidden');
+        
+        let activeInd = document.getElementById('step-indicator-' + step);
+        activeInd.className = 'w-10 h-10 rounded-full bg-[#0B3B24] text-white font-[800] text-sm flex items-center justify-center shadow-xs transition';
+    }
+</script>
 @endsection

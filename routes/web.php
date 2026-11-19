@@ -366,3 +366,7 @@ Route::get('/admin/kelola-pembayaran', function () {
 Route::get('/admin/aktivasi-akun', function () {
     return view('admin.aktivasi-akun');
 })->name('admin.aktivasi-akun');
+
+Route::get('/supervisor/dashboard', function () {
+    return view('supervisor.dashboard');
+})->name('supervisor.dashboard');

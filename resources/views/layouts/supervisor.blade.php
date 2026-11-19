@@ -24,6 +24,10 @@
             </div>
 
             <nav class="space-y-2 font-serif text-sm">
+                <a href="{{ route('supervisor.dashboard') }}" 
+                   class="w-full flex items-center gap-3 px-4 py-3 rounded-2xl transition text-left {{ request()->routeIs('supervisor.profile') ? 'bg-[#E5D3B3] text-[#0B3B24] font-bold shadow-md' : 'text-[#E5D3B3] hover:bg-emerald-900/60' }}">
+                    <span class="material-symbols-outlined">home_work</span> <span>Beranda</span>
+                </a>
                 <a href="{{ route('supervisor.profile') }}" 
                    class="w-full flex items-center gap-3 px-4 py-3 rounded-2xl transition text-left {{ request()->routeIs('supervisor.profile') ? 'bg-[#E5D3B3] text-[#0B3B24] font-bold shadow-md' : 'text-[#E5D3B3] hover:bg-emerald-900/60' }}">
                     <span class="material-symbols-outlined">home_work</span> <span>Profile Perusahaan</span>
