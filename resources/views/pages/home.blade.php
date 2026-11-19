@@ -42,7 +42,7 @@
                 <span>Lihat Paket Perjalanan</span>
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
             </a>
-            <a href="https://wa.me/6289518829438?text=Assalamualaikum%20ROZWIA,%20saya%20ingin%20berkonsultasi%20mengenai%20perjalanan%20ibadah." target="_blank" class="bg-emerald-900/80 hover:bg-emerald-800 text-white border border-emerald-700/70 font-serif font-semibold text-xs sm:text-sm px-7 py-4 rounded-2xl backdrop-blur-md shadow-md transition transform hover:-translate-y-1 flex items-center gap-2">
+            <a href="https://wa.me/6289516889496?text=Assalamualaikum%20ROZWIA,%20saya%20ingin%20berkonsultasi%20mengenai%20perjalanan%20ibadah." target="_blank" class="bg-emerald-900/80 hover:bg-emerald-800 text-white border border-emerald-700/70 font-serif font-semibold text-xs sm:text-sm px-7 py-4 rounded-2xl backdrop-blur-md shadow-md transition transform hover:-translate-y-1 flex items-center gap-2">
                 <svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 256 258">
 	                                <path d="M0 0h256v258H0z" fill="none" />
 	                                    <defs>

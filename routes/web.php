@@ -360,3 +360,9 @@ Route::get('/user/status', function () {
 Route::get('/user/profile', function () {
     return view('user.profile');
 })->name('user.profile');
+Route::get('/admin/kelola-pembayaran', function () {
+    return view('admin.kelola-pembayaran');
+})->name('admin.kelola-pembayaran');
+Route::get('/admin/aktivasi-akun', function () {
+    return view('admin.aktivasi-akun');
+})->name('admin.aktivasi-akun');

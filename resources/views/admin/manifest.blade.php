@@ -286,7 +286,7 @@ Silakan unduh lampiran berkas jadwal penerbangan, hotel, serta pembagian kamar d
                                @change="handleFiles($event)">
                         
                         <div class="w-9 h-9 mx-auto rounded-full bg-white shadow-xs border border-stone-200 flex items-center justify-center text-stone-600 text-sm">
-                            ☁️
+                            <span class="material-symbols-outlined">cloud_upload</span>
                         </div>
                         <p class="text-xs font-bold text-stone-800">Klik untuk memilih file jadwal atau manifest baru</p>
                         <p class="text-[10px] text-stone-400">File yang diunggah akan otomatis dilampirkan pada email seluruh anggota</p>

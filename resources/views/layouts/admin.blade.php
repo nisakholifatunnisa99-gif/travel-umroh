@@ -55,11 +55,21 @@
         <span class="material-symbols-outlined">flights_and_hotels</span>
         <span>Administrasi Hotel & Pesawat</span>
     </a>
+    <a href="{{ route('admin.kelola-pembayaran') }}" 
+        class="w-full flex items-center gap-3 px-4 py-3 rounded-2xl transition text-left {{ request()->routeIs('admin.kelola-pembayaran') ? 'bg-[#E5D3B3] text-[#0B3B24] font-bold shadow-md' : 'text-[#E5D3B3] hover:bg-emerald-900/60 ' }}">
+        <span class="material-symbols-outlined">payments</span>
+        <span>Kelola Pembayaran</span>
+    </a>
 
     <a href="{{ route('admin.manifest') }}" 
        class="w-full flex items-center gap-3 px-4 py-3 rounded-2xl transition text-left {{ request()->routeIs('admin.manifest') ? 'bg-[#E5D3B3] text-[#0B3B24] font-bold shadow-md' : 'text-[#E5D3B3] hover:bg-emerald-900/60' }}">
         <span class="material-symbols-outlined">edit_calendar</span>
         <span>Jadwal & Manifest</span>
+    </a>
+    <a href="{{ route('admin.aktivasi-akun') }}" 
+        class="w-full flex items-center gap-3 px-4 py-3 rounded-2xl transition text-left {{ request()->routeIs('admin.manifest') ? 'bg-[#E5D3B3] text-[#0B3B24] font-bold shadow-md' : 'text-[#E5D3B3] hover:bg-emerald-900/60' }}">
+        <span class="material-symbols-outlined">account_box</span>
+        <span>Aktivasi Akun</span>
     </a>
 </nav>
         </div>
