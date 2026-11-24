@@ -3,43 +3,115 @@
 @section('title', 'Beranda Jamaah - ROZWIA Islamic Travel')
 
 @section('content')
-    <!-- Header Sambutan & Lonceng Notifikasi -->
-    <div class="flex justify-between items-center">
-        <div>
-            <h1 class="text-2xl sm:text-3xl font-bold font-serif text-stone-900">
-                Assalamu’alaikum, [ Rinzani Fauziah ]
-            </h1>
-            <p class="text-xs sm:text-sm text-stone-600 mt-1">
-                Semoga persiapan ibadah Anda dimudahkan. Berikut perkembangan terbaru bookingan Anda.
-            </p>
-        </div>
-        <div class="w-12 h-12 rounded-2xl bg-white border border-stone-200 shadow-xs flex items-center justify-center text-amber-600 text-xl cursor-pointer hover:bg-stone-50 transition relative">
-            
-            <span class="material-symbols-outlined">notifications</span>
-        </div>
+    <!-- HEADER DENGAN IKON NOTIFIKASI & POP-UP DROPDOWN -->
+<div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 relative">
+    <div>
+        <h1 class="text-2xl sm:text-3xl font-[800] font-['Abhaya_Libre'] text-stone-900">
+            Assalamu'alaikum, Rinzani Fauziah
+        </h1>
+        <p class="text-xs sm:text-sm text-stone-600 font-sans">
+            Semoga persiapan ibadah Anda dimudahkan. Berikut perkembangan terbaru bookingan Anda.
+        </p>
     </div>
 
-    <!-- 1. Card: Langkah Anda Berikutnya -->
-    <div class="bg-[#0B3B24] text-white rounded-[32px] p-7 sm:p-8 shadow-sm space-y-4">
-        <div class="space-y-1">
-            <span class="text-[11px] font-bold text-amber-400 uppercase tracking-widest">Langkah Anda Berikutnya</span>
-            <h3 class="text-xl sm:text-2xl font-bold font-serif">Unggah dokumen Persyaratan</h3>
-            <p class="text-xs sm:text-sm text-emerald-100/80 max-w-2xl">
-                Lengkapi dokumen agar admin dapat memeriksa dan booking Anda berlanjut ke pelunasan.
-            </p>
-        </div>
-        
-        <!-- Progress Bar -->
-        <div class="space-y-2 pt-2">
-            <div class="flex justify-between items-center text-xs font-semibold">
-                <span class="text-emerald-200">Dokumen terkumpul</span>
-                <span class="text-amber-300">[3 dari 8]</span>
+    <!-- Tombol Ikon Lonceng Notifikasi di Atas (Responsif Mobile & Desktop) -->
+    <div class="relative">
+        <button onclick="toggleNotifPopup()" class="w-12 h-12 rounded-2xl bg-white border border-stone-200 shadow-xs flex items-center justify-center text-stone-700 hover:bg-stone-50 transition cursor-pointer relative">
+            <span class="material-symbols-outlined text-xl">notifications</span>
+            <!-- Badge Indikator Merah (Ada Notif Baru) -->
+            <span class="absolute top-2.5 right-2.5 w-3 h-3 bg-rose-600 rounded-full border-2 border-white"></span>
+        </button>
+
+        <!-- POP-UP / DROPDOWN KONTAINER NOTIFIKASI -->
+        <div id="notifPopup" class="absolute right-0 mt-3 w-80 sm:w-96 bg-white rounded-[24px] shadow-2xl border border-stone-200 p-5 hidden z-50 space-y-4 font-sans">
+            <div class="flex items-center justify-between border-b border-stone-100 pb-3">
+                <h3 class="font-[800] text-sm text-stone-900">Notifikasi Terbaru</h3>
+                <span class="text-[10px] bg-emerald-100 text-emerald-800 font-bold px-2.5 py-0.5 rounded-full">3 Baru</span>
             </div>
-            <div class="w-full bg-emerald-950/60 h-3 rounded-full overflow-hidden p-0.5 border border-emerald-800/50">
-                <div class="bg-gradient-to-r from-amber-500 to-amber-300 h-full rounded-full w-[37.5%]"></div>
+
+            <!-- Daftar List Notifikasi di dalam Pop-up -->
+            <div class="space-y-3 max-h-72 overflow-y-auto pr-1">
+                <div class="flex items-start gap-3 p-2.5 rounded-xl hover:bg-stone-50 transition cursor-pointer">
+                    <span class="w-2 h-2 rounded-full bg-emerald-600 mt-1.5 shrink-0"></span>
+                    <div class="text-xs space-y-0.5">
+                        <p class="font-bold text-stone-900">Pembayaran Berhasil</p>
+                        <p class="text-stone-500">Pembayaran DP Anda sudah diverifikasi admin.</p>
+                        <span class="text-[10px] text-stone-400">Baru saja</span>
+                    </div>
+                </div>
+
+                <div class="flex items-start gap-3 p-2.5 rounded-xl hover:bg-stone-50 transition cursor-pointer">
+                    <span class="w-2 h-2 rounded-full bg-rose-600 mt-1.5 shrink-0"></span>
+                    <div class="text-xs space-y-0.5">
+                        <p class="font-bold text-stone-900">Perbaikan Dokumen</p>
+                        <p class="text-stone-500">Pas Foto perlu diperbaiki. Catatan admin di menu Dokumen.</p>
+                        <span class="text-[10px] text-stone-400">Kemarin</span>
+                    </div>
+                </div>
+
+                <div class="flex items-start gap-3 p-2.5 rounded-xl hover:bg-stone-50 transition cursor-pointer">
+                    <span class="w-2 h-2 rounded-full bg-amber-500 mt-1.5 shrink-0"></span>
+                    <div class="text-xs space-y-0.5">
+                        <p class="font-bold text-stone-900">Lengkapi Persyaratan</p>
+                        <p class="text-stone-500">Booking Anda berhasil dibuat, silahkan lengkapi dokumen.</p>
+                        <span class="text-[10px] text-stone-400">2 hari lalu</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="border-t border-stone-100 pt-2 text-center">
+                <a href="#" class="text-xs font-bold text-[#0B3B24] hover:underline">Lihat Semua Notifikasi</a>
             </div>
         </div>
     </div>
+</div>
+
+    <!-- KARTU PROGRESS UNGGAH DOKUMEN PERSYARATAN -->
+<div class="bg-[#0B3B24] text-white rounded-[32px] p-6 sm:p-8 shadow-sm space-y-5 font-sans relative overflow-hidden">
+    
+    <!-- Aksen Glow Background Halus -->
+    <div class="absolute -right-10 -bottom-10 w-48 h-48 bg-emerald-600/20 rounded-full blur-2xl pointer-events-none"></div>
+
+    <!-- Bagian Atas: Keterangan (Tanpa Tombol Kelola Dokumen) -->
+    <div class="space-y-1 relative z-10">
+        <span class="text-[10px] sm:text-xs font-[700] uppercase tracking-wider text-amber-400 bg-amber-950/40 px-3 py-1 rounded-full border border-amber-500/30">
+            Langkah Anda Berikutnya
+        </span>
+        <h2 class="text-xl sm:text-2xl font-[800] font-['Abhaya_Libre'] text-white pt-1">
+            Unggah Dokumen Persyaratan
+        </h2>
+        <p class="text-xs text-emerald-100/80 leading-relaxed max-w-xl">
+            Lengkapi seluruh dokumen persyaratan agar tim admin dapat memeriksa dan booking Anda dapat berlanjut ke tahap pelunasan.
+        </p>
+    </div>
+
+    <!-- Bagian Bawah: Progress Bar & Info Dokumen Kurang -->
+    <div class="space-y-2 pt-2 border-t border-emerald-900/60 relative z-10">
+        <div class="flex justify-between items-center text-xs">
+            <span class="font-bold text-emerald-100 flex items-center gap-1.5">
+                <span class="w-2 h-2 rounded-full bg-amber-400 animate-pulse"></span>
+                Dokumen Terkumpul
+            </span>
+            <span class="font-[800] text-amber-300 bg-emerald-900/80 px-3 py-1 rounded-full border border-emerald-700/50">
+                3 dari 8 Dokumen (37.5%)
+            </span>
+        </div>
+
+        <!-- Progress Bar Visual -->
+        <div class="w-full bg-emerald-950/80 rounded-full h-3 p-0.5 border border-emerald-800/60 overflow-hidden">
+            <div class="bg-gradient-to-r from-amber-500 to-amber-400 h-full rounded-full transition-all duration-500" style="width: 37.5%;"></div>
+        </div>
+
+        <!-- Teks Informasi & Tombol Munculkan Info -->
+        <div class="flex justify-between items-center text-xs pt-1">
+            <span class="text-emerald-200/90 font-medium">⚠️ 5 dokumen lagi belum diunggah atau perlu diperbaiki.</span>
+            
+           
+        </div>
+    </div>
+</div>
+
+
 
     <!-- 2. Card: Tahap Booking (4 Langkah) -->
     <div class="bg-white rounded-[32px] p-6 sm:p-7 border border-stone-200 shadow-sm space-y-3">
@@ -100,7 +172,7 @@
         <div class="bg-white rounded-[32px] p-6 border border-stone-200 shadow-sm space-y-5">
             <div class="flex justify-between items-center border-b border-stone-100 pb-3">
                 <span class="text-[10px] font-bold text-stone-400 uppercase tracking-wider">PAKET SAYA</span>
-                <span class="bg-emerald-100 text-emerald-800 font-bold text-[10px] px-3 py-1 rounded-full">Pasti Berangkat</span>
+                
             </div>
             <div>
                 <h4 class="text-base font-bold text-stone-900 font-serif">Umrah Reguler Barakah 12 Hari</h4>
@@ -112,7 +184,7 @@
                 </div>
                 <div>
                     <span class="text-stone-400 block text-[11px]">Maskapai & Rute</span>
-                    <strong class="text-stone-800 font-serif"><span class="material-symbols-outlined">travel</span> Saudia Airlines(CGK - JED)</strong>
+                    <strong class="text-stone-800 font-serif"><span class="material-symbols-outlined">travel</span> Saudia Airlines</strong>
                 </div>
                 <div>
                     <span class="text-stone-400 block text-[11px]">Tipe Kamar Hotel</span>
@@ -148,7 +220,7 @@
                 </div>
             </div>
             <button onclick="alert('Form Unggah Bukti Pembayaran')" class="w-full bg-[#0B3B24] hover:bg-emerald-900 text-white font-bold py-2.5 rounded-xl text-xs transition cursor-pointer shadow-xs">
-                Unggah Bukti
+                Lanjutkan Pelunasan
             </button>
         </div>
 
@@ -157,30 +229,7 @@
     <!-- 4. Bagian Bawah: Notifikasi Baru & Butuh Bantuan -->
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
         
-        <!-- Kotak Notifikasi Baru (Col 7) -->
-        <div class="lg:col-span-7 bg-white rounded-[32px] p-6 sm:p-7 border border-stone-200 shadow-sm space-y-4">
-            <h3 class="text-base font-bold font-serif text-stone-900 pb-2 border-b border-stone-100">Notifikasi Baru</h3>
-            
-            <div class="space-y-3.5 text-xs">
-                <!-- Notif 1 (Hijau) -->
-                <div class="flex items-start gap-3 pb-3 border-b border-stone-100">
-                    <span class="w-2.5 h-2.5 rounded-full bg-emerald-600 mt-1.5 shrink-0"></span>
-                    <p class="text-stone-700 font-medium">Pembayaran DP Anda sudah diverifikasi admin.</p>
-                </div>
-
-                <!-- Notif 2 (Merah) -->
-                <div class="flex items-start gap-3 pb-3 border-b border-stone-100">
-                    <span class="w-2.5 h-2.5 rounded-full bg-rose-600 mt-1.5 shrink-0"></span>
-                    <p class="text-stone-700 font-medium">Pas Foto perlu diperbaiki. catatan admin di menu Dokumen.</p>
-                </div>
-
-                <!-- Notif 3 (Kuning) -->
-                <div class="flex items-start gap-3">
-                    <span class="w-2.5 h-2.5 rounded-full bg-amber-500 mt-1.5 shrink-0"></span>
-                    <p class="text-stone-700 font-medium">Booking Anda berhasil dibuat. silahkan lengkapi dokumen persyaratan.</p>
-                </div>
-            </div>
-        </div>
+        
 
         <!-- Kotak Butuh Bantuan? (Col 5) -->
         <div class="lg:col-span-5 bg-[#0B3B24] text-white rounded-[32px] p-6 sm:p-7 shadow-sm flex flex-col justify-between space-y-4">
@@ -218,4 +267,19 @@
         </div>
 
     </div>
+    <script>
+    function toggleNotifPopup() {
+        const popup = document.getElementById('notifPopup');
+        popup.classList.toggle('hidden');
+    }
+
+    // Tutup pop-up jika pengguna mengklik di luar area lonceng/popup
+    window.addEventListener('click', function(e) {
+        const popup = document.getElementById('notifPopup');
+        const notifBtn = popup.previousElementSibling;
+        if (!popup.contains(e.target) && !notifBtn.contains(e.target)) {
+            popup.classList.add('hidden');
+        }
+    });
+</script>
 @endsection

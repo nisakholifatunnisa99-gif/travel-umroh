@@ -28,22 +28,28 @@
                         </p>
                     </div>
 
-                    <!-- Statistik Pill (Tidak Tabrakan) -->
-                    <div class="grid grid-cols-1 sm:grid-cols-12 gap-3 pt-2">
-                        <div class="sm:col-span-4 bg-emerald-900/60 border border-emerald-700/50 rounded-2xl p-3.5 flex flex-col justify-center">
-                            <span class="block text-[10px] text-emerald-300 uppercase font-serif tracking-wider">Durasi</span>
-                            <span class="text-sm font-bold font-serif text-white mt-0.5">{{ $package['duration'] }}</span>
-                        </div>
-                        <div class="sm:col-span-5 bg-emerald-900/60 border border-emerald-700/50 rounded-2xl p-3.5 flex flex-col justify-center">
-                            <span class="block text-[10px] text-emerald-300 uppercase font-serif tracking-wider">Maskapai</span>
-                            <span class="text-xs sm:text-sm font-bold font-serif text-white mt-0.5 leading-snug truncate">{{ $package['airline'] }}</span>
-                        </div>
-                        <div class="sm:col-span-3 bg-emerald-900/60 border border-emerald-700/50 rounded-2xl p-3.5 flex flex-col justify-center">
-                            <span class="block text-[10px] text-emerald-300 uppercase font-serif tracking-wider">Kuota</span>
-                            <span class="text-sm font-bold font-serif text-amber-300 mt-0.5">Tersedia</span>
-                        </div>
-                    </div>
+                    <!-- Pembungkus Grid Kartu (grid-cols-1 untuk HP, md:grid-cols-3 untuk tablet/laptop) -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 mt-6 w-full">
+    
+    <!-- Card 1: Durasi -->
+    <div class="bg-[#0B3B24]/90 backdrop-blur-md border border-emerald-700/50 rounded-[24px] p-5 sm:p-6 text-white shadow-lg space-y-1">
+        <span class="text-[10px] sm:text-xs font-[700] uppercase tracking-wider text-emerald-300">Durasi</span>
+        <h4 class="text-xl sm:text-2xl font-[800] font-['Abhaya_Libre']">9 Hari</h4>
+    </div>
 
+    <!-- Card 2: Hotel Makkah -->
+    <div class="bg-[#0B3B24]/90 backdrop-blur-md border border-emerald-700/50 rounded-[24px] p-5 sm:p-6 text-white shadow-lg space-y-1">
+        <span class="text-[10px] sm:text-xs font-[700] uppercase tracking-wider text-emerald-300">Hotel Makkah</span>
+        <h4 class="text-lg sm:text-xl font-[800] font-['Abhaya_Libre'] leading-snug">Fairmont Makkah (Bintang 5)</h4>
+    </div>
+
+    <!-- Card 3: Hotel Madinah -->
+    <div class="bg-[#0B3B24]/90 backdrop-blur-md border border-emerald-700/50 rounded-[24px] p-5 sm:p-6 text-white shadow-lg space-y-1">
+        <span class="text-[10px] sm:text-xs font-[700] uppercase tracking-wider text-emerald-300">Hotel Madinah</span>
+        <h4 class="text-lg sm:text-xl font-[800] font-['Abhaya_Libre'] leading-snug">Anwar Al Madinah Mövenpick</h4>
+    </div>
+
+</div>
                     <div class="pt-2">
                         <span class="text-xs text-emerald-200 block font-serif uppercase tracking-wider">Mulai dari</span>
                         <div class="flex items-baseline gap-2">

@@ -11,7 +11,7 @@
         <div class="absolute right-0 top-0 w-96 h-96 bg-emerald-900/30 rounded-full blur-3xl pointer-events-none"></div>
         <div class="absolute inset-0 opacity-20 bg-cover bg-center" style="background-image: url('{{ asset('img/about-us.jpg') }}')"></div>
 
-        <div class="relative z-10 max-w-5xl mx-auto space-y-6">
+        <div class="relative z-10 max-w-7xl mx-auto space-y-6">
             <div class="flex items-center gap-2 text-xs text-amber-200/80 font-serif">
                 <a href="/" class="hover:underline">Beranda</a>
                 <span>/</span>
@@ -26,46 +26,59 @@
                     Temukan jawaban seputar persyaratan dokumen, paspor, manasik, dan persiapan keberangkatan umroh Anda.
                 </p>
             </div>
-
         </div>
     </div>
 
 
-    <!-- 2. FILTER KATEGORI PILL (MENGARAH KE SECTION MASING-MASING DI HALAMAN INI) -->
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex items-center gap-3 overflow-x-auto pb-2 scrollbar-none">
-            <a href="#kategori-dokumen" class="bg-[#0B3B24] text-white text-xs sm:text-sm font-semibold px-6 py-3 rounded-full shadow-xs shrink-0 transition">
+    <!-- 2. FILTER KATEGORI PILL (RESPONSIF: RATA DI DESKTOP, BISA DIGESER HORIZONTAL DI HP) -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 my-2">
+        <div class="flex items-center gap-3 overflow-x-auto w-full pb-3 no-scrollbar sm:flex-wrap">
+            
+            <!-- Tombol Kategori 1 -->
+            <a href="#kategori-dokumen" class="px-5 py-2.5 rounded-full bg-[#0B3B24] text-white text-xs sm:text-sm font-bold whitespace-nowrap shadow-xs cursor-pointer transition shrink-0">
                 Persyaratan Dokumen
             </a>
-            <a href="#kategori-paspor" class="bg-white hover:bg-emerald-50 text-stone-700 border border-stone-200 text-xs sm:text-sm font-semibold px-6 py-3 rounded-full shadow-xs shrink-0 transition">
+
+            <!-- Tombol Kategori 2 -->
+            <a href="#kategori-paspor" class="px-5 py-2.5 rounded-full bg-white border border-stone-200 text-stone-700 text-xs sm:text-sm font-bold whitespace-nowrap hover:bg-stone-50 transition cursor-pointer shadow-xs shrink-0">
                 Paspor
             </a>
-            <a href="#kategori-meningitis" class="bg-white hover:bg-emerald-50 text-stone-700 border border-stone-200 text-xs sm:text-sm font-semibold px-6 py-3 rounded-full shadow-xs shrink-0 transition">
+
+            <!-- Tombol Kategori 3 -->
+            <a href="#kategori-meningitis" class="px-5 py-2.5 rounded-full bg-white border border-stone-200 text-stone-700 text-xs sm:text-sm font-bold whitespace-nowrap hover:bg-stone-50 transition cursor-pointer shadow-xs shrink-0">
                 Buku Kuning Meningitis
             </a>
-            <a href="#kategori-perlengkapan" class="bg-white hover:bg-emerald-50 text-stone-700 border border-stone-200 text-xs sm:text-sm font-semibold px-6 py-3 rounded-full shadow-xs shrink-0 transition">
+
+            <!-- Tombol Kategori 4 -->
+            <a href="#kategori-perlengkapan" class="px-5 py-2.5 rounded-full bg-white border border-stone-200 text-stone-700 text-xs sm:text-sm font-bold whitespace-nowrap hover:bg-stone-50 transition cursor-pointer shadow-xs shrink-0">
                 Perlengkapan Umroh
             </a>
-            <a href="#kategori-manasik" class="bg-white hover:bg-emerald-50 text-stone-700 border border-stone-200 text-xs sm:text-sm font-semibold px-6 py-3 rounded-full shadow-xs shrink-0 transition">
+
+            <!-- Tombol Kategori 5 -->
+            <a href="#kategori-manasik" class="px-5 py-2.5 rounded-full bg-white border border-stone-200 text-stone-700 text-xs sm:text-sm font-bold whitespace-nowrap hover:bg-stone-50 transition cursor-pointer shadow-xs shrink-0">
                 Manasik
             </a>
-            <a href="#kategori-keberangkatan" class="bg-white hover:bg-emerald-50 text-stone-700 border border-stone-200 text-xs sm:text-sm font-semibold px-6 py-3 rounded-full shadow-xs shrink-0 transition">
+
+            <!-- Tombol Kategori 6 -->
+            <a href="#kategori-keberangkatan" class="px-5 py-2.5 rounded-full bg-white border border-stone-200 text-stone-700 text-xs sm:text-sm font-bold whitespace-nowrap hover:bg-stone-50 transition cursor-pointer shadow-xs shrink-0">
                 Persiapan Keberangkatan
             </a>
-            <a href="#kategori-healthcare" class="bg-white hover:bg-emerald-50 text-stone-700 border border-stone-200 text-xs sm:text-sm font-semibold px-6 py-3 rounded-full shadow-xs shrink-0 transition">
+
+            <!-- Tombol Kategori 7 -->
+            <a href="#kategori-healthcare" class="px-5 py-2.5 rounded-full bg-white border border-stone-200 text-stone-700 text-xs sm:text-sm font-bold whitespace-nowrap hover:bg-stone-50 transition cursor-pointer shadow-xs shrink-0">
                 Health Care
             </a>
+
         </div>
     </div>
 
 
-    <!-- 3. DAFTAR 7 KATEGORI DENGAN MASING-MASING 1 PERTANYAAN -->
+    <!-- 3. DAFTAR 7 KATEGORI DENGAN MASING-MASING PERTANYAAN -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
         
         <!-- Kategori 1: Persyaratan Dokumen -->
         <div id="kategori-dokumen" class="space-y-4 scroll-mt-28">
             <div class="flex items-center gap-3 pb-2 border-b border-stone-200/80">
-                
                 <h2 class="text-xl sm:text-2xl font-bold text-[#0B3B24] font-serif">Persyaratan Dokumen Umroh</h2>
             </div>
             <details class="group bg-white rounded-2xl shadow-xs border border-stone-200/80 overflow-hidden transition duration-300">
@@ -87,7 +100,6 @@
         <!-- Kategori 2: Paspor -->
         <div id="kategori-paspor" class="space-y-4 scroll-mt-28">
             <div class="flex items-center gap-3 pb-2 border-b border-stone-200/80">
-                
                 <h2 class="text-xl sm:text-2xl font-bold text-[#0B3B24] font-serif">Paspor Jamaah</h2>
             </div>
             <details class="group bg-white rounded-2xl shadow-xs border border-stone-200/80 overflow-hidden transition duration-300">
@@ -109,7 +121,6 @@
         <!-- Kategori 3: Buku Kuning Meningitis -->
         <div id="kategori-meningitis" class="space-y-4 scroll-mt-28">
             <div class="flex items-center gap-3 pb-2 border-b border-stone-200/80">
-                
                 <h2 class="text-xl sm:text-2xl font-bold text-[#0B3B24] font-serif">Buku Kuning Meningitis</h2>
             </div>
             <details class="group bg-white rounded-2xl shadow-xs border border-stone-200/80 overflow-hidden transition duration-300">
@@ -131,7 +142,6 @@
         <!-- Kategori 4: Perlengkapan Umroh -->
         <div id="kategori-perlengkapan" class="space-y-4 scroll-mt-28">
             <div class="flex items-center gap-3 pb-2 border-b border-stone-200/80">
-                
                 <h2 class="text-xl sm:text-2xl font-bold text-[#0B3B24] font-serif">Perlengkapan Umroh</h2>
             </div>
             <details class="group bg-white rounded-2xl shadow-xs border border-stone-200/80 overflow-hidden transition duration-300">
@@ -153,7 +163,6 @@
         <!-- Kategori 5: Manasik -->
         <div id="kategori-manasik" class="space-y-4 scroll-mt-28">
             <div class="flex items-center gap-3 pb-2 border-b border-stone-200/80">
-                
                 <h2 class="text-xl sm:text-2xl font-bold text-[#0B3B24] font-serif">Manasik Umroh</h2>
             </div>
             <details class="group bg-white rounded-2xl shadow-xs border border-stone-200/80 overflow-hidden transition duration-300">
@@ -175,7 +184,6 @@
         <!-- Kategori 6: Persiapan Keberangkatan -->
         <div id="kategori-keberangkatan" class="space-y-4 scroll-mt-28">
             <div class="flex items-center gap-3 pb-2 border-b border-stone-200/80">
-                
                 <h2 class="text-xl sm:text-2xl font-bold text-[#0B3B24] font-serif">Persiapan Keberangkatan</h2>
             </div>
             <details class="group bg-white rounded-2xl shadow-xs border border-stone-200/80 overflow-hidden transition duration-300">
@@ -197,7 +205,6 @@
         <!-- Kategori 7: Health Care -->
         <div id="kategori-healthcare" class="space-y-4 scroll-mt-28">
             <div class="flex items-center gap-3 pb-2 border-b border-stone-200/80">
-                
                 <h2 class="text-xl sm:text-2xl font-bold text-[#0B3B24] font-serif">Health Care & Kesehatan</h2>
             </div>
             <details class="group bg-white rounded-2xl shadow-xs border border-stone-200/80 overflow-hidden transition duration-300">
