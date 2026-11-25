@@ -1,0 +1,24 @@
+:root {
+    --theme-sand: #EBE1D3;
+}
+
+/* Shared visual theme for all Blade layouts, including CDN-rendered Tailwind views. */
+body {
+    background-color: var(--theme-sand);
+}
+
+/* Replace the previous beige brand surfaces without touching semantic status colors. */
+[class*="bg-[#FDFBF7]"],
+[class*="bg-[#F4EFE6]"],
+[class*="bg-[#FAF8F5]"],
+[class*="bg-[#DFD7C6]"],
+[class*="bg-[#E5D3B3]"],
+[class*="bg-[#D4B996]"] {
+    background-color: var(--theme-sand) !important;
+}
+
+/* Keep the theme consistent for inline/background utility variants used by older views. */
+.theme-surface,
+.theme-page {
+    background-color: var(--theme-sand) !important;
+}

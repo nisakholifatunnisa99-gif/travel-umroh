@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@yield('title', 'Admin Panel - ROZWIA Islamic Travel')</title>
-    <link rel="stylesheet" href="global.css" />
+    <link rel="stylesheet" href="{{ asset('css/global.css') }}" />
 
     <!-- Tailwind CSS v4 CDN -->
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
@@ -13,9 +13,14 @@
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root { --rozwia-sand: #EBE1D3; }
+        body { background-color: var(--rozwia-sand) !important; }
+        [class~="bg-[#F4EFE6]"], [class~="bg-[#FAF8F5]"], [class~="bg-[#E5D3B3]"] { background-color: var(--rozwia-sand) !important; }
+    </style>
 </head>
 
-<body class="bg-[#F4EFE6] font-sans text-stone-800 antialiased min-h-screen flex">
+<body class="bg-[#EBE1D3] font-sans text-stone-800 antialiased min-h-screen flex">
 
     <!-- ================= SIDEBAR KIRI MENEMPEL PENUH ================= -->
     <aside class="w-72 bg-[#0B3B24] text-[#E5D3B3] flex flex-col justify-between fixed inset-y-0 left-0 z-40 shadow-xl p-6">

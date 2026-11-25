@@ -1,3 +1,6 @@
-*{
-    font-family:'Abhaya Libre'!important; 
+* {
+    font-family: 'Abhaya Libre', serif !important;
 }
+
+:root { --rozwia-sand: #EBE1D3; }
+body { background-color: var(--rozwia-sand); }

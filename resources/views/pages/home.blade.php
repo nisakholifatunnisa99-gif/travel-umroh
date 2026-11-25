@@ -161,9 +161,9 @@
         </div>
 
         <div class="pt-4 flex justify-center">
-            <a href="{{ route('paket.umroh') }}" class="bg-[#D4B996] hover:bg-[#c4a982] text-stone-900 font-bold text-sm px-8 py-4 rounded-2xl shadow-sm transition flex items-center gap-3">
+            <a href="{{ route('paket.umroh') }}" class="bg-amber-500 hover:bg-amber-400 text-emerald-950 font-bold text-sm px-8 py-4 rounded-2xl shadow-sm transition flex items-center gap-3">
                 Lihat semua paket umroh 
-                <span class="w-6 h-6 rounded-full bg-stone-900 text-white flex items-center justify-center text-xs">&rarr;</span>
+                <span class="w-6 h-6 rounded-full bg-amber-500 border border-emerald-900 text-emerald-950 flex items-center justify-center text-xs">&rarr;</span>
             </a>
         </div>
 
@@ -237,11 +237,11 @@
                     </div>
 
                     <!-- Tombol Aksi Bawah -->
-                    <div class="flex flex-wrap items-center gap-4 pt-4 font-sans">
-                        <a href="{{ route('paket.detail', 3) }}" class="bg-[#0B3B24] hover:bg-emerald-900 text-white font-bold text-xs sm:text-sm px-7 py-3.5 rounded-full transition shadow-md">
+                    <div class="flex flex-row flex-wrap items-center gap-3 pt-4 font-sans">
+                        <a href="{{ route('paket.detail', 3) }}" class="shrink-0 whitespace-nowrap bg-[#0B3B24] hover:bg-emerald-900 text-white font-bold text-xs sm:text-sm px-7 py-3.5 rounded-full transition shadow-md">
                             Lihat Detail Haji
                         </a>
-                        <a href="#" class="bg-[#D4B996]/60 hover:bg-[#D4B996] text-stone-900 border border-stone-300 font-bold text-xs sm:text-sm px-7 py-3.5 rounded-full transition shadow-xs">
+                        <a href="#" class="shrink-0 whitespace-nowrap bg-[#D4B996]/60 hover:bg-[#D4B996] text-stone-900 border border-stone-300 font-bold text-xs sm:text-sm px-7 py-3.5 rounded-full transition shadow-xs">
                             Konsultasi Haji
                         </a>
                     </div>
@@ -421,29 +421,29 @@
     </section>
 
 
-    <!-- 5. SECTION BANNER BAWAH (RESPONSIF MOBILE & DESKTOP) -->
+    <!-- 5. SECTION BANNER BAWAH (CARD CTA WARNA PUTIH, BORDER EMERALD) -->
 <section id="cta-bawah" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-4">
-    <div class="bg-[#0B3B24] rounded-[32px] p-8 sm:p-14 shadow-xl border border-emerald-900 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8">
+    <div class="bg-white rounded-[32px] p-8 sm:p-14 shadow-xl border-2 border-emerald-600/30 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8">
         
-        <!-- Teks Informasi CTA -->
+        <!-- Teks Informasi CTA (Font Hitam/Gelap) -->
         <div class="space-y-3 max-w-xl">
-            <h2 class="text-2xl sm:text-4xl font-serif font-bold text-white tracking-tight">
+            <h2 class="text-2xl sm:text-4xl font-serif font-bold text-stone-900 tracking-tight">
                 Siap Memulai Perjalanan Menuju Baitullah?
             </h2>
-            <p class="text-emerald-100/85 text-sm sm:text-base font-serif leading-relaxed">
+            <p class="text-stone-600 text-sm sm:text-base font-serif leading-relaxed">
                 Jangan ragu untuk mengambil langkah pertama. Daftarkan diri Anda atau konsultasi kebutuhan perjalanan Umrah bersama tim ROZWIA.
             </p>
         </div>
 
         <!-- Tombol Aksi CTA -->
-        <div class="flex flex-col sm:flex-row items-center gap-3.5 w-full lg:w-auto shrink-0">
+        <div class="flex flex-row flex-wrap items-center gap-3.5 w-full lg:w-auto shrink-0">
             <!-- Tombol Daftar Paket -->
-            <a href="{{ route('paket.umroh') }}" class="w-full sm:w-auto text-center bg-amber-500 hover:bg-amber-400 text-emerald-950 font-serif font-bold text-sm px-7 py-3.5 rounded-2xl shadow-md transition transform hover:-translate-y-0.5">
+            <a href="{{ route('paket.umroh') }}" class="flex-1 sm:flex-none whitespace-nowrap text-center bg-amber-500 hover:bg-amber-400 text-emerald-950 font-serif font-bold text-sm px-7 py-3.5 rounded-2xl shadow-md transition transform hover:-translate-y-0.5">
                 Daftar Paket
             </a>
             
             <!-- Tombol Chat Via WhatsApp (Hijau WhatsApp #25D366) -->
-            <a href="https://wa.me/6289518829438?text=Assalamualaikum%20ROZWIA,%20saya%20ingin%20bertanya%20mengenai%20jadwal%20keberangkatan%20dan%20paket%20perjalanan." target="_blank" class="w-full sm:w-auto text-center bg-[#25D366] hover:bg-[#20ba5a] text-white font-serif font-bold text-sm px-7 py-3.5 rounded-2xl border border-emerald-500/30 shadow-md transition transform hover:-translate-y-0.5 flex items-center justify-center gap-2.5">
+            <a href="https://wa.me/6289518829438?text=Assalamualaikum%20ROZWIA,%20saya%20ingin%20bertanya%20mengenai%20jadwal%20keberangkatan%20dan%20paket%20perjalanan." target="_blank" class="flex-1 sm:flex-none whitespace-nowrap text-center bg-[#25D366] hover:bg-[#20ba5a] text-white font-serif font-bold text-sm px-7 py-3.5 rounded-2xl shadow-md transition transform hover:-translate-y-0.5 flex items-center justify-center gap-2.5">
                 <svg xmlns="http://www.w3.org/2000/svg" width="1.2em" height="1.2em" viewBox="0 0 256 258">
                     <path d="M0 0h256v258H0z" fill="none" />
                     <defs>

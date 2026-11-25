@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@yield('title', 'ROZWIA - Islamic Travel & Tour')</title>
+    <link rel="stylesheet" href="{{ asset('css/global.css') }}">
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <!-- Alpine.js -->
@@ -11,8 +12,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Abhaya+Libre:wght@600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root { --rozwia-sand: #EBE1D3; }
+        body { background-color: var(--rozwia-sand) !important; }
+        [class~="bg-[#FDFBF7]"], [class~="bg-[#F4EFE6]"], [class~="bg-[#FAF8F5]"], [class~="bg-[#F9F6F0]"], [class~="bg-[#E5D3B3]"], [class~="bg-[#D4B996]"] { background-color: var(--rozwia-sand) !important; }
+    </style>
 </head>
-<body class="bg-[#FDFBF7] font-sans text-stone-800 antialiased selection:bg-emerald-900 selection:text-white min-h-screen flex flex-col justify-between" x-data="{ loginOpen: false }">
+<body class="bg-[#EBE1D3] font-sans text-stone-800 antialiased selection:bg-emerald-900 selection:text-white min-h-screen flex flex-col justify-between" x-data="{ loginOpen: false }">
 
     <!-- NAVBAR MELAYANG TERPISAH (FLOATING) -->
     <header class="w-full px-4 sm:px-8 pt-6 fixed top-0 z-50">
@@ -57,7 +63,7 @@
     <footer class="bg-[#0B3B24] text-[#E8DFD1] pt-16 pb-10 border-t border-emerald-900">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8 pb-12">
-                
+
                 <!-- Kolom 1: Logo & Deskripsi -->
                 <div class="lg:col-span-4 space-y-5">
                     <div class="flex items-center gap-3">
@@ -236,12 +242,6 @@
                         </button>
                     </div>
                 </form>
-
-                <div class="text-center pt-2 border-t border-stone-100">
-                    <button @click="loginOpen = false" type="button" class="text-xs text-stone-500 hover:text-[#0B3B24] transition cursor-pointer font-serif">
-                        ✕ Tutup Jendela Login
-                    </button>
-                </div>
 
             </div>
 

@@ -350,11 +350,11 @@
                         </div>
 
                         <!-- Tombol Aksi Pendaftaran & WhatsApp -->
-                        <div class="pt-2 space-y-3">
-                            <button type="submit" class="w-full bg-amber-500 hover:bg-amber-400 text-emerald-950 font-bold py-3.5 px-4 rounded-xl shadow-md transition text-xs uppercase tracking-wider text-center">
+                        <div class="pt-2 flex flex-row flex-wrap gap-3">
+                            <button type="submit" class="flex-1 min-w-[12rem] bg-amber-500 hover:bg-amber-400 text-emerald-950 font-bold py-3.5 px-4 rounded-xl shadow-md transition text-xs uppercase tracking-wider text-center">
                                 Daftar Paket Sekarang
                             </button>
-                            <a href="https://wa.me/6289516889496?text=Assalamualaikum%20ROZWIA,%20saya%20ingin%20berkonsultasi%20mengenai%20paket%20{{ urlencode($package['name']) }}." target="_blank" class="w-full bg-[#25D366] hover:bg-[#20ba5a] text-white font-bold py-3.5 px-4 rounded-xl shadow-md transition text-xs flex items-center justify-center gap-2 text-center">
+                            <a href="https://wa.me/6289516889496?text=Assalamualaikum%20ROZWIA,%20saya%20ingin%20berkonsultasi%20mengenai%20paket%20{{ urlencode($package['name']) }}." target="_blank" class="flex-1 min-w-[12rem] bg-[#25D366] hover:bg-[#20ba5a] text-white font-bold py-3.5 px-4 rounded-xl shadow-md transition text-xs flex items-center justify-center gap-2 text-center">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 256 258">
 	                                <path d="M0 0h256v258H0z" fill="none" />
 	                                    <defs>

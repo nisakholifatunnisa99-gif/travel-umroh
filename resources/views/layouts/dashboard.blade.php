@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@yield('title', 'Dashboard Jamaah - ROZWIA Islamic Travel')</title>
+    <link rel="stylesheet" href="{{ asset('css/global.css') }}">
     <!-- Tailwind CSS v4 CDN -->
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     
@@ -11,6 +12,11 @@
     <!-- Google Fonts: Memuat Abhaya Libre dari Regular (400) sampai ExtraBold (800) -->
      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
      <link href="https://fonts.googleapis.com/css2?family=Abhaya+Libre:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root { --rozwia-sand: #EBE1D3; }
+        body { background-color: var(--rozwia-sand) !important; }
+        [class~="bg-[#F4EFE6]"], [class~="bg-[#FAF8F5]"], [class~="bg-[#E5D3B3]"] { background-color: var(--rozwia-sand) !important; }
+    </style>
     
     <style>
         /* Mengubah seluruh font default aplikasi menjadi Abhaya Libre */
@@ -22,7 +28,7 @@
         }
     </style>
 </head>
-<body class="bg-[#F4EFE6] min-h-screen flex text-stone-900 m-0">
+<body class="bg-[#EBE1D3] min-h-screen flex text-stone-900 m-0">
 
     <!-- SIDEBAR KIRI (Stay / Sticky di posisinya) -->
     <aside class="w-80 bg-[#0B3B24] text-white flex flex-col justify-between p-8 shrink-0 h-screen sticky top-0 overflow-y-auto shadow-lg">
